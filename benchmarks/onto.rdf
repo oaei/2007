@@ -35,7 +35,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.10 2004/06/19 17:05:54 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.11 2004/06/20 20:39:35 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
@@ -1162,8 +1162,8 @@
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
-          <owl:Class rdf:resource="#Reference"/>
-          <owl:Class rdf:resource="#Conference"/>
+          <owl:Class rdf:about="#Reference"/>
+          <owl:Class rdf:about="#Conference"/>
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
