@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 
 <!DOCTYPE rdf:RDF [
           <!ENTITY xsd		"http://www.w3.org/2001/XMLSchema#" >
@@ -25,29 +25,26 @@
  xmlns:dcterms	="&dcterms;"
  xmlns:dctype	="&dctype;">
 
-<!-- This ontology describes bibliographic references.
-     -->
+<!-- This ontology describes bibliographic references. -->
   
   <owl:Ontology rdf:about="">
     <dc:creator>Nick Knouf &lt;nknouf@mit.edu&gt;</dc:creator>
     <dc:contributor>Antoine Zimmermann &lt;antoine.zimmermann@inrialpes.fr&gt;</dc:contributor>
-    <dc:contributor>Jérome Euzenat</dc:contributor>
+    <dc:contributor>Jérôme Euzenat</dc:contributor>
     <dc:description>Bibliographic references in OWL</dc:description>
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.6 2004/06/15 15:30:45 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.7 2004/06/18 22:09:10 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
     ********  ENTRIES  ********
     
     Entries form the basis of a bibTeX database and are categorized by their type, such as a book, journal article, conference proceedings, etc.  Each entry type has a specific set of fields that are required in bibTeX; as a first pass, these fields will also be required in the OWL ontology.
-    
     Note: all rdfs:comment values for the entries come from http://newton.ex.ac.uk/tex/pack/bibtex/btxdoc/node6.html.
   -->
 
-<!-- ***Reference*** -->
   <owl:Class rdf:ID="Reference">
     <rdfs:label xml:lang="en">Reference</rdfs:label>
     <rdfs:comment xml:lang="en">Base class for all entries</rdfs:comment>
@@ -507,7 +504,6 @@
 
   <!-- SPECIAL CLASSES -->
 
-  <!-- A journal is not a document nor an organization. -->
   <owl:Class rdf:ID="Journal">
     <rdfs:label xml:lang="en">Journal or magazine</rdfs:label>
     <rdfs:comment xml:lang="en">A periodical publication collecting works from different authors.</rdfs:comment>
@@ -668,12 +664,6 @@
     <rdfs:comment xml:lang="en">A school or university.</rdfs:comment>
   </owl:Class>
 
-  <!--owl:Class rdf:ID="Person">
-    <rdfs:label xml:lang="en">Person</rdfs:label>
-    <rdfs:comment xml:lang="en">A person.</rdfs:comment>
-    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person" />
-  </owl:Class-->
-
   <owl:Class rdf:ID="PersonList">
     <rdfs:subClassOf rdf:resource="&rdf;List"/>
     <rdfs:label xml:lang="en">Person list</rdfs:label>
@@ -715,15 +705,6 @@
     </rdfs:subClassOf>
   </owl:Class>
 
-<!-- redefinition des propretes de rdf:List (pour jena)
-  <owl:Class rdf:about="&rdf;List" />
-  <owl:ObjectProperty rdf:about="&rdf;first">
-    <rdfs:domain rdf:resource="&rdf;List" />
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="&rdf;rest">
-    <rdfs:domain rdf:resource="&rdf;List" />
-  </owl:ObjectProperty>
- -->
   <owl:Class rdf:ID="PageRange">
     <rdfs:label xml:lang="en">PageRange</rdfs:label>
     <rdfs:comment xml:lang="en">A range of pages.</rdfs:comment>
@@ -784,8 +765,6 @@
     
   <!--
     ********  FIELDS  ********
-    
-    Fields can be considered the properties of a bibTeX entry.  Each entry type (described above) has a different set of required and optional fields.  The fields will all be datatype properties for the time being.
 
     Note: all rdfs:comment values for the entries come from http://newton.ex.ac.uk/tex/pack/bibtex/btxdoc/node7.html
   -->
@@ -794,7 +773,7 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">key</rdfs:label>
-    <rdfs:comment xml:lang="en">The key for a particular bibTeX entry. Note that the rdf:ID for each Reference instance could be the bibTeX key as well, possibly making this property redundant.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The key for a particular entry. Note that the rdf:ID for each Reference instance could be the key as well, possibly making this property redundant.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="reviewed">
@@ -808,7 +787,7 @@
     <rdfs:domain rdf:resource="&owl;Thing"/>
     <rdfs:range rdf:resource="#Address" />
     <rdfs:label xml:lang="en">address</rdfs:label>
-    <rdfs:comment xml:lang="en">BibTeX note: Usually the address of the publisher or other type of institution. For major publishing houses, van Leunen recommends omitting the information entirely. For small publishers, on the other hand, you can help the reader by giving the complete address.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The address of an institution or the place of a conference.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="event">
@@ -843,7 +822,7 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&owl;Thing" />
     <rdfs:label xml:lang="en">Contract</rdfs:label>
-    <rdfs:comment xml:lang="en">The contract in which a particular reference has been made.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The contract in relation of which a particular reference has been made.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="firstPublished">
@@ -864,35 +843,33 @@
     </rdfs:domain>
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">edition</rdfs:label>
-    <rdfs:comment xml:lang="en">The edition of a book (for example, "Second"). This should be an ordinal, and should have the first letter capitalized, as shown here; the standard styles convert to lower case when necessary.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The edition of a book (for example, "Second"). This should be an ordinal.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="humanCreator">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="#PersonList" />
     <rdfs:label xml:lang="en">human creator</rdfs:label>
-    <rdfs:comment xml:lang="en">A generic human creator category, necessary in order to contain both author and editor.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The list of the human creators of a work.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="author">
     <rdfs:subPropertyOf rdf:resource="#humanCreator" />
     <rdfs:label xml:lang="en">author</rdfs:label>
-    <rdfs:comment xml:lang="en">The name(s) of the author(s), in the format described in the LaTeX book.</rdfs:comment>
-    <dc:description>This is tricky due to the fact that order is not (generally) preserved in RDF documents.  The problem arises when you want to have an author list where the order is _extremely_ important.  How shall we do that?  Perhaps we want to define "hasPrimaryAuthor", "hasSecondaryAuthor", "hasTertiaryAuthor", and "hasRemainingAuthors", or something of that sort.  This will be have to given more thought.</dc:description>
+    <rdfs:comment xml:lang="en">The list of the author(s) of a work.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="editor">
     <rdfs:subPropertyOf rdf:resource="#humanCreator" />
     <rdfs:label xml:lang="en">editor</rdfs:label>
-    <rdfs:comment xml:lang="en">The list of persons who edited or coordinated a reference.</rdfs:comment>
-    <dc:description>Again, the same issues that arose with the "author" property apply here.</dc:description>
+    <rdfs:comment xml:lang="en">The list of persons who edited or coordinated a work.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="directors">
     <rdfs:subPropertyOf rdf:resource="#humanCreator" />
     <rdfs:domain rdf:resource="#MotionPicture" />
     <rdfs:label xml:lang="en">directors</rdfs:label>
-    <rdfs:comment xml:lang="en">The list of persons who directed the motion picture.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The list of directors of a motion picture or theater play.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="howPublished">
@@ -906,7 +883,7 @@
     </rdfs:domain>
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">published</rdfs:label>
-    <rdfs:comment xml:lang="en">How something strange has been published. The first word should be capitalized.</rdfs:comment>
+    <rdfs:comment xml:lang="en">How something strange has been published.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="institution">
@@ -914,7 +891,6 @@
     <rdfs:range rdf:resource="#Institution" />
     <rdfs:label xml:lang="en">institution</rdfs:label>
     <rdfs:comment xml:lang="en">The sponsoring institution of a technical report.</rdfs:comment>
-    <dc:description>This could be an object property that refers to an external set of institution instances.</dc:description>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="isPartOf">
@@ -922,7 +898,6 @@
     <rdfs:label xml:lang="en">is part of</rdfs:label>
     <rdf:type rdf:resource="&owl;TransitiveProperty" />
     <rdfs:comment xml:lang="en">The document that contains a text or article.</rdfs:comment>
-    <dc:description>This is an object property that refers to another entry an external objects.</dc:description>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="journal">
@@ -938,7 +913,7 @@
     <rdfs:range rdf:resource="#Monography" />
     <rdfs:subPropertyOf rdf:resource="#isPartOf" />
     <rdfs:label xml:lang="en">book</rdfs:label>
-    <rdfs:comment xml:lang="en">A reference to the book that contains the entry. The entry must be an InBook end the book a Monography.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A reference to the book that contains the entry.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="collection">
@@ -946,7 +921,7 @@
     <rdfs:range rdf:resource="#Collection" />
     <rdfs:subPropertyOf rdf:resource="#isPartOf" />
     <rdfs:label xml:lang="en">collection</rdfs:label>
-    <rdfs:comment xml:lang="en">A reference to the book that contains the entry. The entry must be an Inbook or Incollection.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A reference to the book that contains the entry.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="proceedings">
@@ -954,7 +929,7 @@
     <rdfs:range rdf:resource="#Proceedings" />
     <rdfs:subPropertyOf rdf:resource="#isPartOf" />
     <rdfs:label xml:lang="en">proceedings</rdfs:label>
-    <rdfs:comment xml:lang="en">A reference to the proceedings in which the entry appears. The entry must be an InProceedings.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A reference to the proceedings in which the entry appears.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="date">
@@ -968,7 +943,7 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">note</rdfs:label>
-    <rdfs:comment xml:lang="en">Any additional information that can help the reader. The first word should be capitalized.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Any additional information that can help the reader.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="organization">
@@ -983,7 +958,6 @@
     <rdfs:range rdf:resource="&foaf;Organization" />
     <rdfs:label xml:lang="en">organization</rdfs:label>
     <rdfs:comment xml:lang="en">The organization that sponsors a conference or that publishes a manual.</rdfs:comment>
-    <dc:description>This could be an object property that refers to an external set of organization instances.</dc:description>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="publisher">
@@ -997,7 +971,7 @@
       </rdfs:domain>
     <rdfs:range rdf:resource="#Publisher" />
     <rdfs:label xml:lang="en">publisher</rdfs:label>
-    <rdfs:comment xml:lang="en">The publisher's name.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The publisher of a work.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="school">
@@ -1012,7 +986,6 @@
     <rdfs:range rdf:resource="#School" />
     <rdfs:label xml:lang="en">school</rdfs:label>
     <rdfs:comment xml:lang="en">The name of the school where a thesis was written.</rdfs:comment>
-    <dc:description>As with "publisher", this could be an ObjectProperty that refers to an external set of school instances.</dc:description>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="series">
@@ -1026,7 +999,7 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">title</rdfs:label>
-    <rdfs:comment xml:lang="en">The work's title, typed as explained in the LaTeX book.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The title of the work.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="type">
@@ -1055,21 +1028,21 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">abstract</rdfs:label>
-    <rdfs:comment xml:lang="en">An abstract of the work.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The abstract of the work.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="contents">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">ontents</rdfs:label>
-    <rdfs:comment xml:lang="en">A Table of Contents.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The Table of Contents.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="copyright">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">copyright</rdfs:label>
-    <rdfs:comment xml:lang="en">Copyright information.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The Copyright information.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="isbn">
@@ -1090,28 +1063,28 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">keywords</rdfs:label>
-    <rdfs:comment xml:lang="en">Key words used for searching or possibly for annotation.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Key words used for searching or possibly for annotation (as given by the author or publisher).</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="language">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;language" />
     <rdfs:label xml:lang="en">language</rdfs:label>
-    <rdfs:comment xml:lang="en">The language in which the referenced publication is written or performed.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The language in which the referenced publication is written or performed (use ISO two-letter codes).</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="location">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="#Address" />
     <rdfs:label xml:lang="en">location</rdfs:label>
-    <rdfs:comment xml:lang="en">A location associated with the entry, such as the city in which a conference took place.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A location associated with the entry, such as the city in which a conference took place (this is now obsolete).</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="lccn">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">LCCN</rdfs:label>
-    <rdfs:comment xml:lang="en">The Library of Congress Call Number.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The Library of Congress Call Number (this the Congress of the United State of America).</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="mrNumber">
@@ -1132,14 +1105,14 @@
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">size</rdfs:label>
-    <rdfs:comment xml:lang="en">The physical dimensions of a work.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The physical dimensions of a document.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="url">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">URL</rdfs:label>
-    <rdfs:comment xml:lang="en">The WWW Universal Resource Locator that points to the item being referenced. This often is used for technical reports to point to the ftp or web site where the postscript source of the report is located.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The Universal Resource Locator that points to the item being referenced.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="name">
@@ -1154,15 +1127,13 @@
 
   <!--
     ********  "META" PROPERTIES  ********
-    
-    We define here some meta properties that the fields above may use as superproperties.  This is necessary in order to define cardinality constraints properly.
   -->
 
   <owl:DatatypeProperty rdf:ID="chapter">
     <rdfs:domain rdf:resource="#Part" />
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">chapter</rdfs:label>
-    <rdfs:comment xml:lang="en">A chapter (or section or whatever) number.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The chapter (or section or whatever) number in which the entry is found.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="pages">
