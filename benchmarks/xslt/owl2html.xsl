@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
-<!-- $Id: owl2html.xsl,v 1.1 2004/06/09 15:11:16 euzenat Exp euzenat $ -->
+<!-- $Id: owl2html.xsl,v 1.2 2004/06/09 16:03:46 euzenat Exp euzenat $ -->
 
 <!-- This stylesheet provides a rough view of a particular ontology -->
 <!-- TODO:
@@ -13,7 +13,7 @@
  xmlns:datext="http://www.jclark.com/xt/java/java.util.Date"
  xmlns:datexa="xalan://java.util.Date"
  xmlns:units="http://visus.mit.edu/fontomri/0.01/units.owl#"
- xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/#"
  xmlns:ical="http://www.w3.org/2002/12/cal/#"
  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -133,12 +133,73 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 
 <xsl:template match="rdfs:subClassOf" mode="ref">
   <xsl:param name="super"/>
-  <xsl:variable name="name" select="@rdf:resource"/>
-  <xsl:if test="not($name = $super)">
-    <xsl:text>super: </xsl:text><i><a href="{$name}">
-      <xsl:value-of select="$name"/></a></i><br />
-  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="@rdf:resource">
+      <xsl:variable name="name" select="@rdf:resource"/>
+      <xsl:if test="not($name = $super)">
+	<xsl:text>super: </xsl:text><i><a href="{$name}">
+	    <xsl:value-of select="$name"/></a></i><br />
+      </xsl:if>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>super: </xsl:text><xsl:apply-templates select="*" mode="ref"/><br />
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
+
+<xsl:template match="owl:Class" mode="ref">
+  <xsl:choose>
+    <xsl:when test="@rdf:resource">
+      <i><a href="{@rdf:resource}">
+	  <xsl:value-of select="@rdf:resource"/></a></i>
+    </xsl:when>
+    <xsl:when test="@rdf:about">
+      <i><a href="{@rdf:about}">
+	  <xsl:value-of select="@rdf:about"/></a></i>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates select="*" mode="ref"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="owl:unionOf" mode="ref">
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="*">
+    <xsl:apply-templates select="." mode="ref"/>
+    <xsl:if test="position() != last()"><xsl:text> | </xsl:text>
+    </xsl:if>
+  </xsl:for-each>
+  <xsl:text>)</xsl:text>
+</xsl:template>
+
+<xsl:template match="owl:intersectionOf" mode="ref">
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="*">
+    <xsl:apply-templates select="." mode="ref"/>
+    <xsl:if test="position() != last()"><xsl:text> &amp; </xsl:text>
+    </xsl:if>
+  </xsl:for-each>
+  <xsl:text>)</xsl:text>
+</xsl:template>
+
+<xsl:template match="owl:complementOf" mode="ref">
+  <xsl:text>-</xsl:text>
+  <xsl:apply-templates select="*[1]" mode="ref"/>
+</xsl:template>
+
+<xsl:template match="owl:oneOf" mode="ref">
+  <xsl:text> { </xsl:text>
+  <xsl:apply-templates select="*" />
+  <xsl:text> } </xsl:text>
+</xsl:template>
+
+<!-- Generic treatment of individuals -->
+<!--xsl:template match="*">
+  <xsl:text> { </xsl:text>
+  <xsl:apply-templates select="*" />
+  <xsl:text> } </xsl:text>
+</xsl:template-->
 
 <xsl:template name="iterRestriction">
   <xsl:param name="rests"/>
@@ -163,11 +224,35 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 </xsl:template>
 
 <xsl:template match="owl:allValuesFrom">
-  <xsl:text> </xsl:text><a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a>
+  <xsl:text> </xsl:text>
+  <xsl:choose>
+    <xsl:when test="@rdf:resource">
+      <xsl:call-template name="name">
+	<xsl:with-param name="name" select="@rdf:resource"/>
+      </xsl:call-template><br />
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates select="*" mode="ref"/><br />
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <xsl:template match="owl:someValuesFrom">
-  <xsl:text> (</xsl:text><a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a><xsl:text>)</xsl:text>
+  <xsl:text> (</xsl:text>
+  <xsl:choose>
+    <xsl:when test="@rdf:resource or @rdf:about">
+	<xsl:apply-templates select="@rdf:resource|@rdf:about" mode="ref"/><br />
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates select="*" mode="ref"/><br />
+    </xsl:otherwise>
+  </xsl:choose>
+  <xsl:text>) </xsl:text>
+ </xsl:template>
+
+<xsl:template name="name">
+  <xsl:param name="name"/>
+  <i><a href="{$name}"><xsl:value-of select="$name"/></a></i>
 </xsl:template>
 
 <xsl:template match="owl:cardinality">
@@ -184,15 +269,21 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 
 <xsl:template match="*" mode="signature">
     <xsl:choose>
-      <xsl:when test="rdfs:domain">
+      <xsl:when test="rdfs:domain/@rdf:resource">
 	<xsl:text> </xsl:text><a href="{rdfs:domain/@rdf:resource}"><xsl:value-of select="rdfs:domain/@rdf:resource"/></a>
+      </xsl:when>
+      <xsl:when test="rdfs:domain">
+	<xsl:apply-templates select="rdfs:domain/*" mode="ref"/>
       </xsl:when>
       <xsl:otherwise><xsl:text>_</xsl:text></xsl:otherwise>
     </xsl:choose>
     <xsl:text> -> </xsl:text>
     <xsl:choose>
-      <xsl:when test="rdfs:range">
+      <xsl:when test="rdfs:range/@rdf:resource">
 	<xsl:text> </xsl:text><a href="{rdfs:range/@rdf:resource}"><xsl:value-of select="rdfs:range/@rdf:resource"/></a>
+      </xsl:when>
+      <xsl:when test="rdfs:range">
+	<xsl:apply-templates select="rdfs:range/*" mode="ref"/>
       </xsl:when>
       <xsl:otherwise><xsl:text>_</xsl:text></xsl:otherwise>
     </xsl:choose>
