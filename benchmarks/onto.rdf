@@ -30,12 +30,12 @@
   <owl:Ontology rdf:about="">
     <dc:creator>Nick Knouf &lt;nknouf@mit.edu&gt;</dc:creator>
     <dc:contributor>Antoine Zimmermann &lt;antoine.zimmermann@inrialpes.fr&gt;</dc:contributor>
-    <dc:contributor>JÃ©rÃ´me Euzenat</dc:contributor>
+    <dc:contributor>Jérôme Euzenat</dc:contributor>
     <dc:description>Bibliographic references in OWL</dc:description>
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.7 2004/06/18 22:09:10 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.8 2004/06/19 15:40:44 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
@@ -1248,16 +1248,16 @@
 </foaf:Person>
 
 <foaf:Person rdf:about="#285228505">
-	<rdfs:label>Alexander MÃ¤dche</rdfs:label>
-	<name rdf:datatype="&xsd;string">Alexander MÃ¤adche</name>
+	<rdfs:label>Alexander Mädche</rdfs:label>
+	<name rdf:datatype="&xsd;string">Alexander Mädche</name>
 	<firstName rdf:datatype="&xsd;string">Alexander</firstName>
-	<lastName rdf:datatype="&xsd;string">MÃ¤dche</lastName>
+	<lastName rdf:datatype="&xsd;string">Mädche</lastName>
 </foaf:Person>
 
 <foaf:Person rdf:about="#748552212">
-	<rdfs:label>BjÃ¶rn Schnizler</rdfs:label>
-	<name rdf:datatype="&xsd;string">BjÃ¶rn Schnizler</name>
-	<firstName rdf:datatype="&xsd;string">BjÃ¶rn</firstName>
+	<rdfs:label>Björn Schnizler</rdfs:label>
+	<name rdf:datatype="&xsd;string">Björn Schnizler</name>
+	<firstName rdf:datatype="&xsd;string">Björn</firstName>
 	<lastName rdf:datatype="&xsd;string">Schnizler</lastName>
 </foaf:Person>
 
@@ -1367,10 +1367,10 @@
 </foaf:Person>
 
 <foaf:Person rdf:about="#898078619">
-	<rdfs:label>Philippe CudrÃ©-Mauroux</rdfs:label>
-	<name rdf:datatype="&xsd;string">Philippe CudrÃ©-Mauroux</name>
+	<rdfs:label>Philippe Cudré-Mauroux</rdfs:label>
+	<name rdf:datatype="&xsd;string">Philippe Cudré-Mauroux</name>
 	<firstName rdf:datatype="&xsd;string">Philippe</firstName>
-	<lastName rdf:datatype="&xsd;string">CudrÃ©-Mauroux</lastName>
+	<lastName rdf:datatype="&xsd;string">Cudré-Mauroux</lastName>
 </foaf:Person>
 
 <foaf:Person rdf:about="#839510672">
@@ -1476,7 +1476,7 @@
 
 <Publisher rdf:about="#785849488">
 	<rdfs:label>The MIT Press</rdfs:label>
-	<name rdf:datatype="&xsd;string">The MIT Press, Cambridge (MA US)</name>
+	<name rdf:datatype="&xsd;string">The MIT Press</name>
 	<address>
 		<Address>
 			<city rdf:datatype="&xsd;string">Cambridge</city>
