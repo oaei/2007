@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://visus.mit.edu/bibtex/0.1/owl2w3cxml.xsl" type="text/xsl"?>
 
 <!DOCTYPE rdf:RDF [
           <!ENTITY xsd		"http://www.w3.org/2001/XMLSchema#" >
@@ -39,7 +38,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.1 2004/06/05 14:25:34 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.2 2004/06/10 20:10:37 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
