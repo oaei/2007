@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
-<!-- $Id: owl2html.xsl,v 1.3 2004/06/10 20:11:13 euzenat Exp euzenat $ -->
+<!-- $Id: owl2html.xsl,v 1.4 2004/06/15 10:47:05 euzenat Exp euzenat $ -->
 
 <!-- This stylesheet provides a rough view of a particular ontology -->
 <!-- TODO:
@@ -106,7 +106,12 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 
 <xsl:template match="owl:Class">
   <xsl:param name="super"/>
-  <xsl:variable name="od" select="@rdf:ID"/>
+  <xsl:variable name="od">
+    <xsl:choose>
+      <xsl:when test="@rdf:ID"><xsl:value-of select="@rdf:ID"/></xsl:when>
+      <xsl:when test="@rdf:about"><xsl:value-of select="@rdf:about"/></xsl:when>
+    </xsl:choose>
+  </xsl:variable>
   <dt><b><a name="{$od}"><xsl:value-of select="$od"/></a></b>
     <xsl:text> (</xsl:text><xsl:value-of
     select="rdfs:label/text()"/>, <i><xsl:value-of select="rdfs:comment/text()"/>)</i>
@@ -289,7 +294,12 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 </xsl:template>
 
 <xsl:template match="owl:ObjectProperty">
-  <xsl:variable name="od" select="@rdf:ID"/>
+  <xsl:variable name="od">
+    <xsl:choose>
+      <xsl:when test="@rdf:ID"><xsl:value-of select="@rdf:ID"/></xsl:when>
+      <xsl:when test="@rdf:about"><xsl:value-of select="@rdf:about"/></xsl:when>
+    </xsl:choose>
+  </xsl:variable>
   <dt><b><a name="{$od}"><xsl:value-of select="$od"/></a></b>:
     <xsl:apply-templates select="." mode="signature"/>
     <i> (<xsl:value-of select="rdfs:comment/text()"/>)</i>
@@ -304,7 +314,12 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 </xsl:template>
 
 <xsl:template match="owl:DatatypeProperty">
-  <xsl:variable name="od" select="@rdf:ID"/>
+  <xsl:variable name="od">
+    <xsl:choose>
+      <xsl:when test="@rdf:ID"><xsl:value-of select="@rdf:ID"/></xsl:when>
+      <xsl:when test="@rdf:about"><xsl:value-of select="@rdf:about"/></xsl:when>
+    </xsl:choose>
+  </xsl:variable>
   <dt><b><a name="{$od}"><xsl:value-of select="$od"/></a></b>
     <xsl:apply-templates select="." mode="signature"/>
     <i> (<xsl:value-of select="rdfs:comment/text()"/>)</i>
