@@ -35,7 +35,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.9 2004/06/19 15:43:25 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.10 2004/06/19 17:05:54 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
@@ -119,7 +119,7 @@
   <owl:Class rdf:ID="Book">
     <rdfs:subClassOf rdf:resource="#Reference" />
     <rdfs:label xml:lang="en">Book</rdfs:label>
-    <rdfs:comment xml:lang="en">A book that may be a monography or a collection of written texts.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A book that may be a monograph or a collection of written texts.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
 	<owl:onProperty rdf:resource="#title" />
@@ -170,9 +170,9 @@
     </rdfs:subClassOf>
   </owl:Class>
 
-  <owl:Class rdf:ID="Monography">
+  <owl:Class rdf:ID="Monograph">
     <rdfs:subClassOf rdf:resource="#Book" />
-    <rdfs:label xml:lang="en">Monography</rdfs:label>
+    <rdfs:label xml:lang="en">Monograph</rdfs:label>
     <rdfs:comment xml:lang="en">A book that is a single entity, as opposed to a collection.</rdfs:comment>
   </owl:Class>
 
@@ -910,7 +910,7 @@
 
   <owl:ObjectProperty rdf:ID="book">
     <rdfs:domain rdf:resource="#InBook" />
-    <rdfs:range rdf:resource="#Monography" />
+    <rdfs:range rdf:resource="#Monograph" />
     <rdfs:subPropertyOf rdf:resource="#isPartOf" />
     <rdfs:label xml:lang="en">book</rdfs:label>
     <rdfs:comment xml:lang="en">A reference to the book that contains the entry.</rdfs:comment>
@@ -1742,12 +1742,12 @@
 	<date><Date><month>12</month><year>2003</year></Date></date>
 </Article>
 
-<Monography rdf:about="#2108048723">
+<Monograph rdf:about="#2108048723">
 	<rdfs:label>Object-Oriented Data Modeling</rdfs:label>
 	<publisher rdf:resource="#785849488"/>
 	<title>Object-Oriented Data Modeling</title>
 	<date><Date><year>2000</year></Date></date>
-</Monography>
+</Monograph>
 
 <Article rdf:about="#1456080390">
 	<rdfs:label>On dynamically generated ontology translators in agent communication</rdfs:label>
