@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
-<!-- $Id: owl2html.xsl,v 1.2 2004/06/09 16:03:46 euzenat Exp euzenat $ -->
+<!-- $Id: owl2html.xsl,v 1.3 2004/06/10 20:11:13 euzenat Exp euzenat $ -->
 
 <!-- This stylesheet provides a rough view of a particular ontology -->
 <!-- TODO:
-     - individuals
      - base axioms
      - find same entity -->
 
@@ -67,7 +66,7 @@
 
 <h2>Individuals</h2>
 <dl>
-<xsl:for-each select="rdf:RDF/owl:Individuals">
+<xsl:for-each select="rdf:RDF/*[not(self::owl:Ontology) and not(self::owl:DatatypeProperty) and not(self::owl:ObjectProperty) and not(self::owl:Class)]">
   <xsl:apply-templates select="."/>
 </xsl:for-each>
 </dl>
@@ -317,6 +316,58 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
       </xsl:if>
     </xsl:for-each>
   </dl></dd>
+</xsl:template>
+
+<xsl:template match="*">
+  <xsl:variable name="name">
+    <xsl:choose>
+      <xsl:when test="@rdf:ID"><xsl:value-of select="@rdf:ID"/></xsl:when>
+      <xsl:when test="@rdf:about"><xsl:value-of select="substring(@rdf:about,2)"/></xsl:when>
+      <xsl:when test="@rdf:resource"><xsl:value-of select="substring(@rdf:resource,2)"/></xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <dt><xsl:text>&lt;</xsl:text>
+    <xsl:value-of select="name()"/>
+    <xsl:text>@</xsl:text>
+    <xsl:choose>
+    <xsl:when test="$name"><a name="{$name}"><xsl:value-of select="$name"/></a></xsl:when>
+    <xsl:otherwise><xsl:text>_</xsl:text></xsl:otherwise>
+  </xsl:choose>
+  <xsl:text>&gt;</xsl:text></dt><dd>
+  <ul compact="1"><xsl:for-each select="*">
+    <li><xsl:apply-templates select="." mode="attr"/></li>
+  </xsl:for-each></ul></dd>
+</xsl:template>
+
+<xsl:template match="*" mode="attr">
+  <xsl:value-of select="name()"/>
+  <xsl:text> = </xsl:text>
+  <xsl:choose>
+    <xsl:when test="*"><xsl:apply-templates select="*"/></xsl:when>
+    <xsl:when test="@rdf:resource"><xsl:text>&lt;_@</xsl:text><a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a><xsl:text>&gt;</xsl:text></xsl:when>
+    <xsl:when test="text()"><xsl:apply-templates select="text()"/></xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="text()">
+  <xsl:text>'</xsl:text><xsl:value-of select="."/><xsl:text>'</xsl:text>
+</xsl:template>
+
+<xsl:template match="rdf:first">
+  <xsl:choose>
+    <xsl:when test="@rdf:resource"><xsl:text>&lt;_@</xsl:text><a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a><xsl:text>&gt;</xsl:text></xsl:when>
+    <xsl:otherwise><xsl:apply-templates select="*"/></xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="rdf:rest">
+  <xsl:choose>
+    <xsl:when test="@rdf:resource and (@rdf:resource = rdf:nil)"/>
+    <xsl:otherwise>
+      <xsl:text>,</xsl:text>
+      <xsl:apply-templates select="*"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
