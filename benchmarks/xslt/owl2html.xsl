@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
-<!-- $Id$ -->
+<!-- $Id: owl2html.xsl,v 1.1 2004/06/09 15:11:16 euzenat Exp euzenat $ -->
 
 <!-- This stylesheet provides a rough view of a particular ontology -->
 <!-- TODO:
      - individuals
      - base axioms
-     - find same entity
-     - find same attribute
-     - multi superclass -->
+     - find same entity -->
 
 <xsl:stylesheet version="1.0"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -108,36 +106,38 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
 </xsl:template>
 
 <xsl:template match="owl:Class">
+  <xsl:param name="super"/>
   <xsl:variable name="od" select="@rdf:ID"/>
   <dt><b><a name="{$od}"><xsl:value-of select="$od"/></a></b>
     <xsl:text> (</xsl:text><xsl:value-of
     select="rdfs:label/text()"/>, <i><xsl:value-of select="rdfs:comment/text()"/>)</i>
   </dt>
   <dd>
-    <!--p>super: <xsl:apply-templates select="rdfs:subClassOf[@rdf:resource]" mode="ref"/></p-->
+    <xsl:apply-templates select="rdfs:subClassOf[@rdf:resource]" mode="ref">
+      <xsl:with-param name="super" select="$super"/>
+    </xsl:apply-templates>
   <ul><xsl:call-template name="iterRestriction">
-        <xsl:with-param name="rests" select="rdfs:subClassOf/owl:Restriction"/>
+      <xsl:with-param name="rests" select="rdfs:subClassOf/owl:Restriction"/>
     </xsl:call-template>
-<!--xsl:apply-templates select="rdfs:subClassOf/owl:Restriction">
-	  <xsl:with-param name="pos" select="position()"/>
-  </xsl:apply-templates--></ul>
-  <dl>
+  </ul>
+  <dl> <!-- Yes, n^2, sorry about that -->
     <xsl:for-each select="//rdf:RDF/owl:Class">
       <xsl:if test="./rdfs:subClassOf[@rdf:resource=concat('#',$od)]">
-	<xsl:apply-templates select="."/>
+	<xsl:apply-templates select=".">
+	  <xsl:with-param name="super" select="concat('#',$od)" />
+	</xsl:apply-templates>
       </xsl:if>
     </xsl:for-each>
   </dl></dd>
 </xsl:template>
 
 <xsl:template match="rdfs:subClassOf" mode="ref">
-  <i><a href="{@rdf:resource}">
-      <xsl:value-of select="@rdf:resource"/></a></i>
-</xsl:template>
-
-<xsl:template match="rdfs:subClassOf" mode="ref">
-  <i><a href="{@rdf:resource}">
-      <xsl:value-of select="@rdf:resource"/></a></i>
+  <xsl:param name="super"/>
+  <xsl:variable name="name" select="@rdf:resource"/>
+  <xsl:if test="not($name = $super)">
+    <xsl:text>super: </xsl:text><i><a href="{$name}">
+      <xsl:value-of select="$name"/></a></i><br />
+  </xsl:if>
 </xsl:template>
 
 <xsl:template name="iterRestriction">
@@ -145,7 +145,7 @@ Version: <xsl:value-of select="owl:versionInfo/text()"/>
   <xsl:if test="$rests">
     <xsl:if test="not($rests[(position() &gt; 1) and
      (owl:onProperty/@rdf:resource = $rests[1]/owl:onProperty/@rdf:resource)])">
-      <xsl:apply-templates select="$rests[1]" />
+      <xsl:apply-templates select="$rests[1]"/>
     </xsl:if>
     <xsl:call-template name="iterRestriction">
       <xsl:with-param name="rests" select="$rests[position() &gt; 1]"/>
