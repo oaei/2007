@@ -7,8 +7,6 @@
 	  <!ENTITY dc		"http://purl.org/dc/elements/1.1/" >
 	  <!ENTITY owl		"http://www.w3.org/2002/07/owl#" >
 	  <!ENTITY units	"http://visus.mit.edu/fontomri/0.01/units.owl#" >
-	  <!ENTITY bib		"http://www.inrialpes.fr/exmo/papers/owl/#">
-	  <!ENTITY bibtex	"http://purl.org/net/nknouf/ns/bibtex#">
 	  <!ENTITY foaf 	"http://xmlns.com/foaf/0.1/#">
 	  <!ENTITY ical 	"http://www.w3.org/2002/12/cal/#">
 	  <!ENTITY dcterms 	"http://purl.org/dc/terms/">
@@ -25,10 +23,7 @@
  xmlns:wot	="http://xmlns.com/wot/0.1/"
  xmlns:dc	="&dc;"
  xmlns:dcterms	="&dcterms;"
- xmlns:dctype	="&dctype;"
- xmlns:bib	="&bib;"
- xmlns="&bib;"
- xmlns:bibtex	="&bibtex;">
+ xmlns:dctype	="&dctype;">
 
 <!-- This ontology describes bibliographic references.
      -->
@@ -41,7 +36,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.3 2004/06/11 09:56:54 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: fr.inrialpes.exmo.rdf.bibix.owl,v 1.4 2004/06/15 10:48:21 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
   <!--
@@ -241,7 +236,7 @@
   <owl:Class rdf:ID="Chapter">
     <rdfs:subClassOf rdf:resource="#Part" />
     <rdfs:label xml:lang="en">BookPart</rdfs:label>
-    <rdfs:comment xml:lang="en">May be a chapter (or section or whatever), a range of pages or a part of a book having its own title.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A chapter (or section or whatever) of a book having its own title.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
 	<owl:onProperty rdf:resource="#chapter" />
@@ -250,8 +245,8 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-	<owl:onProperty rdf:resource="#pagesOrChapter" />
-	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+	<owl:onProperty rdf:resource="#chapter" />
+	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -259,7 +254,7 @@
   <owl:Class rdf:ID="InBook">
     <rdfs:subClassOf rdf:resource="#Part" />
     <rdfs:label xml:lang="en">InBook</rdfs:label>
-    <rdfs:comment xml:lang="en">May be a chapter (or section or whatever) and/or a range of pages.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A subpart of a book given by a range of pages.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
 	<!-- author OR editor (given in the Book description) ??? -->
@@ -269,7 +264,7 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-	<owl:onProperty rdf:resource="#pagesOrChapter" />
+	<owl:onProperty rdf:resource="#pages" />
 	<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -809,13 +804,6 @@
     <rdfs:comment xml:lang="en">The key for a particular bibTeX entry. Note that the rdf:ID for each Reference instance could be the bibTeX key as well, possibly making this property redundant.</rdfs:comment>
   </owl:DatatypeProperty>
 
-  <owl:DatatypeProperty rdf:ID="language">
-    <rdfs:domain rdf:resource="#Reference" />
-    <rdfs:range rdf:resource="&xsd;language" />
-    <rdfs:label xml:lang="en">language</rdfs:label>
-    <rdfs:comment xml:lang="en">The language in which the referenced publication is written or performed.</rdfs:comment>
-  </owl:DatatypeProperty>
-
   <owl:DatatypeProperty rdf:ID="reviewed">
     <rdfs:domain rdf:resource="#Reference" />
     <rdfs:range rdf:resource="&xsd;string" />
@@ -839,7 +827,7 @@
 
   <owl:ObjectProperty rdf:ID="organizer">
     <rdfs:domain rdf:resource="#Conference"/>
-    <rdfs:range rdf:resource="#Organization" />
+    <rdfs:range rdf:resource="&foaf;Organization" />
     <rdfs:label xml:lang="en">organizer</rdfs:label>
     <rdfs:comment xml:lang="en">The organization taking in charge a conference.</rdfs:comment>
   </owl:ObjectProperty>
@@ -849,14 +837,6 @@
     <rdfs:range rdf:resource="&xsd;string" />
     <rdfs:label xml:lang="en">annote</rdfs:label>
     <rdfs:comment xml:lang="en">An annotation. It is not used by the standard bibliography styles, but may be used by others that produce an annotated bibliography.</rdfs:comment>
-  </owl:DatatypeProperty>
-
-  <owl:DatatypeProperty rdf:ID="chapter">
-    <rdfs:domain rdf:resource="#BookPart" />
-    <rdfs:range rdf:resource="&xsd;string" />
-    <rdfs:subPropertyOf rdf:resource="#pagesOrChapter" />
-    <rdfs:label xml:lang="en">chapter</rdfs:label>
-    <rdfs:comment xml:lang="en">A chapter (or section or whatever) number.</rdfs:comment>
   </owl:DatatypeProperty>
 
   <owl:DatatypeProperty rdf:ID="periodicity">
@@ -1013,20 +993,6 @@
     <dc:description>This could be an object property that refers to an external set of organization instances.</dc:description>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:ID="pages">
-    <rdfs:domain>
-      <owl:Class>
-	<owl:unionOf rdf:parseType="Collection">
-	  <owl:Class rdf:about="#Part" />
-	</owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <rdfs:range rdf:resource="#PageRange" />
-    <rdfs:subPropertyOf rdf:resource="#pagesOrChapter" />
-    <rdfs:label xml:lang="en">pages</rdfs:label>
-    <rdfs:comment xml:lang="en">A range of page, with an upper and lower limit.</rdfs:comment>
-  </owl:ObjectProperty>
-
   <owl:ObjectProperty rdf:ID="publisher">
     <rdfs:domain>
       <owl:Class>
@@ -1134,12 +1100,12 @@
     <rdfs:comment xml:lang="en">Key words used for searching or possibly for annotation.</rdfs:comment>
   </owl:ObjectProperty>
 
-  <owl:ObjectProperty rdf:ID="language">
+  <owl:DatatypeProperty rdf:ID="language">
     <rdfs:domain rdf:resource="#Reference" />
-    <rdfs:range rdf:resource="&xsd;string" />
+    <rdfs:range rdf:resource="&xsd;language" />
     <rdfs:label xml:lang="en">language</rdfs:label>
-    <rdfs:comment xml:lang="en">The language the document is in.</rdfs:comment>
-  </owl:ObjectProperty>
+    <rdfs:comment xml:lang="en">The language in which the referenced publication is written or performed.</rdfs:comment>
+  </owl:DatatypeProperty>
 
   <owl:ObjectProperty rdf:ID="location">
     <rdfs:domain rdf:resource="#Reference" />
@@ -1198,27 +1164,23 @@
     
     We define here some meta properties that the fields above may use as superproperties.  This is necessary in order to define cardinality constraints properly.
   -->
-  <owl:ObjectProperty rdf:ID="pagesOrChapter">
-    <rdfs:domain>
-      <owl:Class>
-	<owl:unionOf rdf:parseType="Collection">
-	  <owl:Class rdf:about="#Part" />
-	</owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
-    <rdfs:label xml:lang="en">page and/or chapter data</rdfs:label>
-    <rdfs:comment xml:lang="en">A generic property to hold page and/or chapter data.</rdfs:comment>
+
+  <owl:DatatypeProperty rdf:ID="chapter">
+    <rdfs:domain rdf:resource="#Part" />
+    <rdfs:range rdf:resource="&xsd;string" />
+    <rdfs:label xml:lang="en">chapter</rdfs:label>
+    <rdfs:comment xml:lang="en">A chapter (or section or whatever) number.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:ObjectProperty rdf:ID="pages">
+    <rdfs:domain rdf:resource="#Part" />
+    <rdfs:range rdf:resource="#PageRange" />
+    <rdfs:label xml:lang="en">pages</rdfs:label>
+    <rdfs:comment xml:lang="en">A range of page, with an upper and lower limit.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="numberOrVolume">
-    <rdfs:domain>
-      <owl:Class>
-	<owl:unionOf rdf:parseType="Collection">
-	  <owl:Class rdf:about="#Article" />
-	  <owl:Class rdf:about="#Composite" />
-	</owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
+    <rdfs:domain rdf:resource="#Reference"/>
     <rdfs:label xml:lang="en">volume or number</rdfs:label>
     <rdfs:comment xml:lang="en">The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series.</rdfs:comment>
   </owl:DatatypeProperty>
@@ -1248,14 +1210,7 @@
 
   <owl:DatatypeProperty rdf:ID="volume">
     <rdfs:subPropertyOf rdf:resource="#numberOrVolume" />
-    <rdfs:domain>
-      <owl:Class>
-	<owl:unionOf rdf:parseType="Collection">
-	  <owl:Class rdf:about="#Article" />
-	  <owl:Class rdf:about="#Composite" />
-	</owl:unionOf>
-      </owl:Class>
-    </rdfs:domain>
+    <rdfs:domain rdf:resource="#Reference"/>
     <rdfs:range rdf:resource="&xsd;nonNegativeInteger" />
     <rdfs:label xml:lang="en">volume</rdfs:label>
     <rdfs:comment xml:lang="en">The volume of a journal or multivolume book.</rdfs:comment>
@@ -1643,25 +1598,6 @@
 	</date>
 </Conference>
 
-<Conference rdf:about="">
-	<rdfs:label></rdfs:label>
-	<name></name>
-	<location>
-		<Address>
-			<city></city>
-			<state></state>
-			<country></country>
-		</Address>
-	</location>
-	<date>
-		<Date>
-			<month></month>
-			<year></year>
-		</Date>
-	</date>
-</Conference>
-
-
 <!-- REFERENCES -->
 
 <Proceedings rdf:about="#1060097576">
@@ -1821,9 +1757,7 @@
 	</author>
 	<proceedings rdf:resource="#332071928"/>
 	<title>Ontology Mapping - An Integrated Approach</title>
-	<!--url rdf:parseType="Resource">
-		<rdfs:label>http://www.aifb.uni-karlsruhe.de/WBS/meh/publications/ehrig04ontology_ESWS04.pdf</rdfs:label>
-	</url-->
+	<url>http://www.aifb.uni-karlsruhe.de/WBS/meh/publications/ehrig04ontology_ESWS04.pdf</url>
 </InProceedings>
 
 <Article rdf:about="#280299267">
