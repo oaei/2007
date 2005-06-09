@@ -37,7 +37,7 @@
     <dc:date>08/06/2005</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: onto.rdf,v 1.15 2005/06/08 15:37:21 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: onto.rdf,v 1.16 2005/06/08 21:44:30 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
 <!-- This is due to the Species Validator. -->
@@ -637,12 +637,6 @@
 	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-	<owl:onProperty rdf:resource="#proceedings" />
-	<owl:allValuesFrom rdf:resource="#Proceedings"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
   </owl:Class>
 
   <owl:Class rdf:ID="Address">
@@ -868,13 +862,6 @@
     <rdfs:range rdf:resource="#Article" />
     <rdfs:label xml:lang="en">articles</rdfs:label>
     <rdfs:comment xml:lang="en">The papers published by a journal.</rdfs:comment>
-  </owl:ObjectProperty>
-
-  <owl:ObjectProperty rdf:ID="proceedings">
-    <rdfs:domain rdf:resource="#Conference"/>
-    <rdfs:range rdf:resource="#Proceedings" />
-    <rdfs:label xml:lang="en">proceedings</rdfs:label>
-    <rdfs:comment xml:lang="en">The proceedings of a conference.</rdfs:comment>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="address">
