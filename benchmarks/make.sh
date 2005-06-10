@@ -1,10 +1,10 @@
 #!/bin/sh
-# $Id: make.sh,v 1.4 2005/06/09 21:05:42 euzenat Exp euzenat $
+# $Id: make.sh,v 1.5 2005/06/10 15:28:38 euzenat Exp euzenat $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
 # //pass3: generate HTML
-
+# //pass4: put everything on the web site (to be processed manually)
 echo Generating files
 
 # //pass1: generate test files
@@ -100,6 +100,12 @@ xsltproc xslt/trans-synonyms.xsl refalign.rdf > 205/refalign.rdf
 mkdir 206
 xsltproc xslt/trans-foreign.xsl onto.rdf > 206/onto.rdf
 xsltproc xslt/trans-foreign.xsl refalign.rdf > 206/refalign.rdf
+# Beware: UTF-8 does not work
+sed "s:iso-8859-1:utf-8:" 206/onto.rdf > 206/onto-utf8.rdf
+perl $HOME/Programmes/Perl/rekod.pl iso-8859-1..utf8 206/onto-utf8.rdf
+sed "s:iso-8859-1:utf-8:" 206/refalign.rdf > 206/refalign-utf8.rdf
+perl $HOME/Programmes/Perl/rekod.pl iso-8859-1..utf8 206/refalign-utf8.rdf
+# This should be reproduced below
 
 #####################################################################
 # 207) Systematic: Foreign names
@@ -160,6 +166,7 @@ cp 101/refalign.rdf 221/refalign.rdf
 \rm -rf 222
 mkdir 222
 cp onto-flat.rdf 222/onto.rdf
+chmod 644 222/onto.rdf
 xsltproc xslt/flatten.xsl refalign.rdf > 222/refalign.rdf
 
 #####################################################################
@@ -170,7 +177,8 @@ xsltproc xslt/flatten.xsl refalign.rdf > 222/refalign.rdf
 \rm -rf 223
 mkdir 223
 cp onto-exp.rdf 223/onto.rdf
-cp refalign.rdf 223/refalign.rdf
+chmod 644 223/onto.rdf
+cp 101/refalign.rdf 223/refalign.rdf
 
 #####################################################################
 # 224) Systematic: No instances
@@ -223,6 +231,7 @@ xsltproc xslt/strip-propalign.xsl refalign.rdf > 228/refalign.rdf
 \rm -rf 230
 mkdir 230
 cp onto-cflat.rdf 230/onto.rdf
+chmod 644 230/onto.rdf
 cp 101/refalign.rdf 230/refalign.rdf
 
 #//TODO
@@ -582,11 +591,15 @@ echo -n "*"$i"*"
 if [ -f $i/refalign.rdf ]
 then
 ed -s $i/refalign.rdf << EOF &>/dev/null
-1,$ s;<onto2>http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf</onto2>;<onto2>http://oaei.inrialpes.fr/2005/benchmarks/$i/onto.rdf</onto2>;
+1,$ s;<uri2>http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf</uri2>;<uri2>http://oaei.inrialpes.fr/2005/benchmarks/$i/onto.rdf</uri2>;
 w
-1,$ s;<uri2>file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/101/onto.rdf</uri2>;<uri2>file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/$i/onto.rdf</uri2>;
+EOF
+ed -s $i/refalign.rdf << EOF &>/dev/null
+1,$ s;<onto2>file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/101/onto.rdf</onto2>;<onto2>file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/$i/onto.rdf</onto2>;
 w
-1,$ s;entity2 rdf:resource="http://oaei.inrialpes.fr/2005/benchmarks/101/;entity2 rdf:resource="http://oaei.inrialpes.fr/2005/benchmarks/$i/;
+EOF
+ed -s $i/refalign.rdf << EOF &>/dev/null
+1,$ s;entity2 rdf:resource=\(['"]\)http://oaei.inrialpes.fr/2005/benchmarks/101/;entity2 rdf:resource=\1http://oaei.inrialpes.fr/2005/benchmarks/$i/;
 w
 EOF
 fi
@@ -600,29 +613,6 @@ fi
 done
 
 ################
-\rm -rf 301 302 303 304
-mkdir 301 302 303 304
-cp ../2004/Contest/301/* 301
-cp ../2004/Contest/302/* 302
-cp ../2004/Contest/303/* 303
-cp ../2004/Contest/304/* 304
-
-for i in `ls -d 3[0-9][0-9]` 
-do
-echo -n "*"$i"*"
-if [ -f $i/refalign.rdf ]
-then
-ed -s $i/refalign.rdf << EOF &>/dev/null
-1,$ s;http://co4.inrialpes.fr/align/Contest/101/onto.rdf;http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf;g
-1,$ s;<onto2>http://co4.inrialpes.fr/align/Contest/[^<]*</onto2>;<onto2>http://oaei.inrialpes.fr/2005/benchmarks/$i/onto.rdf</onto2>;
-w
-1,$ s;<uri2>http://co4.inrialpes.fr/align/Contest/[^<]*</uri2>;<uri2>file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/$i/onto.rdf</uri2>;
-w
-1,$ s;entity2 rdf:resource="http://co4.inrialpes.fr/align/Contest/[^#]*;entity2 rdf:resource="http://oaei.inrialpes.fr/2005/benchmarks/$i/onto.rdf;
-w
-EOF
-fi
-done
 
 #####################################################################
 # //pass3: generate HTML
@@ -641,15 +631,29 @@ done
 echo
 
 #####################################################################
-# //pass3: generate HTML
+# //pass4: generate ZIP file
 # DONE!
 
-cd ..
+exit
 
 # copy
 
-#cp 2005/benchmarks/benchmar
-#mv 2005/benchmarks 2005/benchmarks.old
-#cp -rf tests 2005/benchmarks
+for i in `ls -d [0-9][0-9][0-9]` 
+do
+echo -n "*"$i"*"
+ed -s $i/refalign.rdf << EOF &>/dev/null
+1,$ s;file://localhost/Volumes/Phata/Web/html/co4/oaei/tests;http://oaei.inrialpes.fr/2005/benchmarks;
+w
+EOF
+done
 
-#zip 2005/benchmarks/bench20.zip -r tests/*
+cd ..
+
+cp 2005/benchmarks/bench20.zip 2005/versions
+\rm -rf 2005/benchmarks.old
+mv 2005/benchmarks 2005/benchmarks.old
+cp -rf tests 2005/benchmarks
+
+zip 2005/benchmarks/bench20.zip -r tests/*
+
+#java -cp /Volumes/Phata/JAVA/ontoalign/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o inria -n file://localhost/Volumes/Phata/Web/html/co4/oaei/tests/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.SubsDistNameAlignment
