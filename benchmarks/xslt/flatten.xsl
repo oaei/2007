@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id$ -->
+<!-- $Id: flatten.xsl,v 1.1 2005/06/09 21:10:42 euzenat Exp euzenat $ -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
@@ -16,6 +16,9 @@
 		xmlns:dctype="http://purl.org/dc/dcmitype/"
 		version="1.0"
 >
+
+  <xsl:output method="xml" encoding="iso-8859-1"/>
+
   <!-- for suppressing properties in alignment -->
   <xsl:template match="align:Cell[substring-after(align:entity2/@rdf:resource,'#')='Book']"/>
   <xsl:template match="align:Cell[substring-after(align:entity2/@rdf:resource,'#')='Part']"/>
