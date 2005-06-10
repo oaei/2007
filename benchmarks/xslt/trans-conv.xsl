@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id$ -->
+<!-- $Id: trans-conv.xsl,v 1.1 2005/06/09 21:07:51 euzenat Exp euzenat $ -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
@@ -90,7 +90,28 @@
     <!-- keep the prefix if necessary -->
     <xsl:if test="contains($string,'#')"><xsl:value-of select="substring-before($string,'#')"/>#</xsl:if>
     <xsl:choose>
-     <xsl:when test="$suffix='InBook'">In_book</xsl:when>
+      <xsl:when test="$suffix='UserGuide'">User_Guide</xsl:when>
+      <xsl:when test="$suffix='ReferenceManual'">Reference_Manual</xsl:when>
+      <xsl:when test="$suffix='Review'">Rev.</xsl:when>
+      <xsl:when test="$suffix='InstitutionReport'">Institution_Report</xsl:when>
+      <xsl:when test="$suffix='ProspectiveReport'">Prospective_Report</xsl:when>
+      <xsl:when test="$suffix='EvaluationReport'">Evaluation_Report</xsl:when>
+      <xsl:when test="$suffix='SerialReport'">Serial_Report</xsl:when>
+      <xsl:when test="$suffix='NormalizationReport'">Normalization_Report</xsl:when>
+      <xsl:when test="$suffix='Recommendation'">Rec.</xsl:when>
+      <xsl:when test="$suffix='WorkReport'">Work_Report</xsl:when>
+      <xsl:when test="$suffix='TechnicalMemo'">TM</xsl:when>
+      <xsl:when test="$suffix='ResearchReport'">Technical_Report</xsl:when>
+      <xsl:when test="$suffix='ResearchNote'">Research_Note</xsl:when>
+      <xsl:when test="$suffix='PeriodicReport'">Periodic_Report</xsl:when>
+      <xsl:when test="$suffix='YearlyReport'">Yearly_Report</xsl:when>
+      <xsl:when test="$suffix='FinalReport'">Final_Report</xsl:when>
+      <xsl:when test="$suffix='ScientificMeeting'">Scientific_Meeting</xsl:when>
+      <xsl:when test="$suffix='Society'">Soc.</xsl:when>
+      <xsl:when test="$suffix='HigherEducationInstitution'">Higher_Education_Institution</xsl:when>
+      <xsl:when test="$suffix='University'">Univ.</xsl:when>
+      <xsl:when test="$suffix='EngineerSchool'">Engineer_School</xsl:when>
+      <xsl:when test="$suffix='InBook'">In_book</xsl:when>
       <xsl:when test="$suffix='InCollection'">In_collection</xsl:when>
       <xsl:when test="$suffix='InProceedings'">In_proceedings</xsl:when>
       <xsl:when test="$suffix='Reference'">REFERENCE</xsl:when>
