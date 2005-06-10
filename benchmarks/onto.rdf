@@ -37,12 +37,10 @@
     <dc:date>08/06/2005</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: onto.rdf,v 1.18 2005/06/10 08:25:25 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: onto.rdf,v 1.19 2005/06/10 08:36:17 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
 <!-- Every entity (even external) must be typed in OWL-DL. -->
-<owl:Class rdf:about="&foaf;Person" />
-<owl:Class rdf:about="&foaf;Organization" />
 
 <owl:Class rdf:about="&rdf;List" />
 <rdf:List rdf:about="&rdf;nil" />
@@ -60,6 +58,8 @@
 <owl:DatatypeProperty rdf:about="&dc;date" />
 
 <!-- foaf extensions -->
+<owl:Class rdf:about="&foaf;Person" />
+<owl:Class rdf:about="&foaf;Organization" />
 <owl:DatatypeProperty rdf:about="&foaf;firstName" />
 <owl:DatatypeProperty rdf:about="#lastName" />
 <owl:DatatypeProperty rdf:about="&foaf;name" />
