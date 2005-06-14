@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: make.sh,v 1.7 2005/06/14 12:29:21 euzenat Exp euzenat $
+# $Id: make.sh,v 1.8 2005/06/14 13:03:25 euzenat Exp euzenat $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
@@ -657,6 +657,13 @@ ed -s $i/refalign.rdf << EOF &>/dev/null
 1,$ s;file://localhost/Volumes/Phata/Web/html/co4/oaei/tests;http://oaei.inrialpes.fr/2005/benchmarks;
 w
 EOF
+if [ -f $i/refalign-utf8.rdf ]
+then
+ed -s $i/refalign-utf8.rdf << EOF &>/dev/null
+1,$ s;file://localhost/Volumes/Phata/Web/html/co4/oaei/tests;http://oaei.inrialpes.fr/2005/benchmarks;
+w
+EOF
+fi
 done
 
 cd ..
