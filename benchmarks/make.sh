@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: make.sh,v 1.5 2005/06/10 15:28:38 euzenat Exp euzenat $
+# $Id: make.sh,v 1.6 2005/06/10 22:00:25 euzenat Exp euzenat $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
@@ -95,17 +95,13 @@ xsltproc xslt/trans-synonyms.xsl refalign.rdf > 205/refalign.rdf
 # 206) Systematic: Foreign names (including comments)
 #The complete ontology is translated to another language than  english (French in the current case, but other languages would be fine).
 
-#//TO BE IMPROVED
+#DONE! // NOMORECOMMENT TRANSLATIONS
 \rm -rf 206
 mkdir 206
 xsltproc xslt/trans-foreign.xsl onto.rdf > 206/onto.rdf
 xsltproc xslt/trans-foreign.xsl refalign.rdf > 206/refalign.rdf
-# Beware: UTF-8 does not work
-sed "s:iso-8859-1:utf-8:" 206/onto.rdf > 206/onto-utf8.rdf
-perl $HOME/Programmes/Perl/rekod.pl iso-8859-1..utf8 206/onto-utf8.rdf
-sed "s:iso-8859-1:utf-8:" 206/refalign.rdf > 206/refalign-utf8.rdf
-perl $HOME/Programmes/Perl/rekod.pl iso-8859-1..utf8 206/refalign-utf8.rdf
-# This should be reproduced below
+cat 206/onto.rdf | ./convert_iso2utf8.pl | sed "s:iso-8859-1:utf-8:"> 206/onto-utf8.rdf
+cat 206/refalign.rdf | ./convert_iso2utf8.pl | sed "s:iso-8859-1:utf-8:"> 206/refalign-utf8.rdf
 
 #####################################################################
 # 207) Systematic: Foreign names
@@ -115,7 +111,9 @@ perl $HOME/Programmes/Perl/rekod.pl iso-8859-1..utf8 206/refalign-utf8.rdf
 \rm -rf 207
 mkdir 207
 xsltproc xslt/trans-foreign.xsl onto.rdf > 207/onto.rdf
-xsltproc xslt/trans-foreign.xsl refalign.rdf > 207/refalign.rdf
+cat 207/onto.rdf | ./convert_iso2utf8.pl | sed "s:iso-8859-1:utf-8:"> 207/onto-utf8.rdf
+cp 206/refalign.rdf 207/refalign.rdf
+cp 206/refalign-utf8.rdf 207/refalign-utf8.rdf
 
 #####################################################################
 # 208) Systematic: Convention and no comments
@@ -142,7 +140,9 @@ cp 205/refalign.rdf 209/refalign.rdf
 \rm -rf 210
 mkdir 210
 xsltproc xslt/strip-comments.xsl 207/onto.rdf > 210/onto.rdf
+cat 210/onto.rdf | ./convert_iso2utf8.pl | sed "s:iso-8859-1:utf-8:"> 210/onto-utf8.rdf
 cp 207/refalign.rdf 210/refalign.rdf
+cp 207/refalign-utf8.rdf 210/refalign-utf8.rdf
 
 #####################################################################
 # 221) Systematic: No hierarchy
