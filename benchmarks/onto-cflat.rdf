@@ -38,7 +38,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: onto-cflat.rdf,v 1.2 2005/06/10 20:53:01 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: onto-cflat.rdf,v 1.3 2005/06/28 13:48:52 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
 <!-- Every entity (even external) must be typed in OWL-DL. -->
@@ -907,14 +907,12 @@
     <rdfs:subPropertyOf rdf:resource="#humanCreator" />
     <rdfs:label xml:lang="en">author</rdfs:label>
     <rdfs:comment xml:lang="en">The name(s) of the author(s), in the format described in the LaTeX book.</rdfs:comment>
-    <dc:description>This is tricky due to the fact that order is not (generally) preserved in RDF documents.  The problem arises when you want to have an author list where the order is _extremely_ important.  How shall we do that?  Perhaps we want to define "hasPrimaryAuthor", "hasSecondaryAuthor", "hasTertiaryAuthor", and "hasRemainingAuthors", or something of that sort.  This will be have to given more thought.</dc:description>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="editor">
     <rdfs:subPropertyOf rdf:resource="#humanCreator" />
     <rdfs:label xml:lang="en">editor</rdfs:label>
     <rdfs:comment xml:lang="en">The list of persons who edited or coordinated a reference.</rdfs:comment>
-    <dc:description>Again, the same issues that arose with the "author" property apply here.</dc:description>
   </owl:ObjectProperty>
 
   <owl:ObjectProperty rdf:ID="directors">
@@ -943,7 +941,6 @@
     <rdfs:label xml:lang="en">is part of</rdfs:label>
     <rdf:type rdf:resource="&owl;TransitiveProperty" />
     <rdfs:comment xml:lang="en">The document that contains a text or article.</rdfs:comment>
-    <dc:description>This is an object property that refers to another entry an external objects.</dc:description>
   </owl:ObjectProperty>
 
   <owl:DatatypeProperty rdf:ID="journalName">
@@ -996,7 +993,6 @@
     <rdfs:range rdf:resource="&xsd;String" />
     <rdfs:label xml:lang="en">organization</rdfs:label>
     <rdfs:comment xml:lang="en">The organization that sponsors a conference or that publishes a manual.</rdfs:comment>
-    <dc:description>This could be an object property that refers to an external set of organization instances.</dc:description>
   </owl:DatatypeProperty>
 
 
