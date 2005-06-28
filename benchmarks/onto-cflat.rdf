@@ -38,7 +38,7 @@
     <dc:date>01/06/2004</dc:date>
     <rdfs:label>Bibliographic references</rdfs:label>
     <rdfs:comment>Possible ontology to describe bibTeX entries.</rdfs:comment>
-    <owl:versionInfo>$Id: onto-cflat.rdf,v 1.1 2005/06/10 15:30:03 euzenat Exp euzenat $</owl:versionInfo>
+    <owl:versionInfo>$Id: onto-cflat.rdf,v 1.2 2005/06/10 20:53:01 euzenat Exp euzenat $</owl:versionInfo>
   </owl:Ontology>
 
 <!-- Every entity (even external) must be typed in OWL-DL. -->
@@ -699,7 +699,7 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-	<owl:onProperty rdf:resource="#institutionName" />
+	<owl:onProperty rdf:resource="#organizationName" />
 	<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -998,6 +998,7 @@
     <rdfs:comment xml:lang="en">The organization that sponsors a conference or that publishes a manual.</rdfs:comment>
     <dc:description>This could be an object property that refers to an external set of organization instances.</dc:description>
   </owl:DatatypeProperty>
+
 
   <owl:DatatypeProperty rdf:ID="publisherName">
     <rdfs:domain rdf:resource="#Reference" />
