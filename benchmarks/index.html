@@ -252,6 +252,13 @@ Alignment : [<a href="101/refalign.rdf">RDF/XML</a>]
 Alignment : [<a href="102/refalign.rdf">RDF/XML</a>]
 [<a href="102/refalign.html">HTML</a>]<br />
 </p>
+<p><b>NOTE:</b> The onto.rdf file is provided for compatibility
+  purposes. However, it is possible to run the test directly on the
+  true file, i.e.,
+  http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine.
+  Indeed, wine imports food which imports wine and some parsers do
+  not realize that onto.rdf is the same ontology as wine.
+</p>
 
 <hr />
 <a name="103"/>
@@ -363,6 +370,10 @@ Alignment : [<a href="207/refalign.rdf">RDF/XML</a>]
 [<a href="207/refalign-utf8.rdf">RDF/XML in UTF-8</a>]
 [<a href="207/refalign.html">HTML</a>]<br />
 </p>
+<p><b>NOTE:</b> Some parsers do not like ISO-Latin in tags. You are
+  authorized to use the Unicode (UTF-8) version instead (just replace
+  onto.rdf by onto2.rdf).
+</p>
 
 <hr />
 <a name="208"/>
@@ -394,6 +405,10 @@ Alignment : [<a href="209/refalign.rdf">RDF/XML</a>]
 Alignment : [<a href="210/refalign.rdf">RDF/XML</a>]
 [<a href="210/refalign-utf8.rdf">RDF/XML in UTF-8</a>]
 [<a href="210/refalign.html">HTML</a>]<br />
+</p>
+<p><b>NOTE:</b> Some parsers do not like ISO-Latin in tags. You are
+  authorized to use the Unicode (UTF-8) version instead (just replace
+  onto.rdf by onto2.rdf).
 </p>
 
 <hr />
@@ -938,6 +953,11 @@ Entry
 </p-->
 <hr />
 
+<h1>Versions</h1>
+
+<p>The release notes of the various test versions are given <a
+							       href="logs.html">here</a>.</p>
+
 <h1>Tools</h1>
 
 <p>A <a href="bench.zip">zip file</a> contains all the material
@@ -1002,6 +1022,6 @@ your results).</p>
 <hr />
 <center><small>http://oaei.inrialpes.fr/2005/benchmarks</small></center>
 <hr />
-$Id: index.html,v 1.12 2005/06/16 18:55:10 euzenat Exp euzenat $
+$Id: index.html,v 1.13 2005/06/18 21:20:56 euzenat Exp euzenat $
 </body>
 </html>
