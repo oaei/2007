@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: make.sh,v 1.10 2005/06/14 13:15:14 euzenat Exp euzenat $
+# $Id: make.sh,v 1.11 2005/06/29 14:46:43 euzenat Exp euzenat $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
@@ -604,9 +604,32 @@ ed -s $i/refalign.rdf << EOF &>/dev/null
 w
 EOF
 fi
+if [ -f $i/refalign-utf8.rdf ]
+then
+ed -s $i/refalign-utf8.rdf << EOF &>/dev/null
+1,$ s;<uri2>http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf</uri2>;<uri2>http://oaei.inrialpes.fr/2005/benchmarks/$i/onto.rdf</uri2>;
+w
+EOF
+# Beware, this is different here...
+ed -s $i/refalign-utf8.rdf << EOF &>/dev/null
+1,$ s;<onto2>file://localhost/Volumes/Phata/Web/html/co4/oaei/lib/101/onto.rdf</onto2>;<onto2>file://localhost/Volumes/Phata/Web/html/co4/oaei/lib/$i/onto-utf8.rdf</onto2>;
+w
+EOF
+ed -s $i/refalign-utf8.rdf << EOF &>/dev/null
+1,$ s;entity2 rdf:resource=\(['"]\)http://oaei.inrialpes.fr/2005/benchmarks/101/;entity2 rdf:resource=\1http://oaei.inrialpes.fr/2005/benchmarks/$i/;
+w
+EOF
+fi
 if [ -f $i/onto.rdf ]
 then
 ed -s $i/onto.rdf << EOF &>/dev/null
+1,$ s;oaei.inrialpes.fr/2005/benchmarks/101/;oaei.inrialpes.fr/2005/benchmarks/$i/;g
+w
+EOF
+fi
+if [ -f $i/onto-utf8.rdf ]
+then
+ed -s $i/onto-utf8.rdf << EOF &>/dev/null
 1,$ s;oaei.inrialpes.fr/2005/benchmarks/101/;oaei.inrialpes.fr/2005/benchmarks/$i/;g
 w
 EOF
@@ -639,7 +662,7 @@ exit
 
 # copy
 
-VERSION=22
+VERSION=25
 
 cd ..
 
@@ -666,10 +689,11 @@ w
 EOF
 fi
 done
+echo
 
 cd ..
 
-zip bench$VERSION.zip -r  benchmarks/ -x RCS -x *~ -x inria.rdf*
+zip bench$VERSION.zip -r  benchmarks/ -x benchmarks/RCS/* benchmarks/test-species/* benchmarks/xslt/RCS/* benchmarks/NEW305/*
 mv bench$VERSION.zip benchmarks
 cp benchmarks/bench$VERSION.zip benchmarks/bench.zip
 
