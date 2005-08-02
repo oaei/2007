@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: make.sh,v 1.13 2005/07/07 14:58:07 euzenat Exp euzenat $
+# $Id: make.sh,v 1.14 2005/08/02 09:08:37 euzenat Exp euzenat $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
@@ -666,7 +666,6 @@ VERSION=27
 
 cd ..
 
-cp 2005/benchmarks/bench*.zip 2005/versions
 \rm -rf 2005/benchmarks.old
 mv 2005/benchmarks 2005/benchmarks.old
 
@@ -694,8 +693,8 @@ echo
 cd ..
 
 zip bench$VERSION.zip -r  benchmarks/ -x benchmarks/RCS/* benchmarks/test-species/* benchmarks/xslt/RCS/* benchmarks/NEW305/*
-mv bench$VERSION.zip benchmarks
-cp benchmarks/bench$VERSION.zip benchmarks/bench.zip
+mv bench$VERSION.zip versions
+cp versions/bench$VERSION.zip benchmarks/bench.zip
 
 #java -cp /Volumes/Phata/JAVA/ontoalign/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o inria -n file://localhost/Volumes/Phata/Web/html/co4/oaei/lib/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.SubsDistNameAlignment
 
