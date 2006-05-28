@@ -1,30 +1,22 @@
 <html>
 <head>
-<title>Ontology Alignment Evaluation Initiative::2005</title>
+<title>Ontology Alignment Evaluation Initiative::2006</title>
 </head>
 <body bgcolor="white" face="tahoma, arial">
-
-<!--
-<table width="100%">
-<tr BGCOLOR="yellow" ALIGN="center"><td>
-The 2005 campaign is currently been organized. Stay tuned.
-</td></tr>
-</table>
--->
 
 <a href=".."><img border="0" width="20%" src="../oaei.jpg" align="right" /></a>
 
 <h1>How to use the alignment API for generating evaluation results</h1>
-<h1>2005 Campaign</h1>
+<h1>2006 Campaign</h1>
 
-<p>The instructions here work with version 1.4 of the alignment API</p>
+<p>The instructions here work with version 2.2 of the alignment API</p>
 
 <h2>Getting the API</h2>
 
 <p>See the instructions on 
 <a
-   href="http://co4.inrialpes.fr/align/align.html">http://co4.inrialpes.fr/align/align.html</a>
-   or download directly now at: <a href="http://co4.inrialpes.fr/align/align.zip">http://co4.inrialpes.fr/align/align.zip</a></p>
+   href="http://alignapi.gforge.inria.fr">http://alignapi.gforge.inria.fr</a>
+   or download directly now at: <a href="http://gforge.inria.fr/frs/download.php/608/align-2.2.zip">http://gforge.inria.fr/frs/download.php/608/align-2.2.zip</a></p>
 <p>All required libraries are included.</p>
 
 <h2>Installing</h2>
@@ -55,10 +47,10 @@ The last instruction should output some XML.
 
 <h3>The systematic benchmark tests</h3>
 <pre>
-$ curl http://oaei.ontologymatching.org/2005/benchmarks/bench.zip -o bench.zip
+$ curl http://oaei.ontologymatching.org/2006/benchmarks/bench.zip -o bench.zip
 $ unzip bench.zip
 $ cd benchmarks
-$ java -cp $CWD/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o edna  -n http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment -Dnoinst=1
+$ java -cp $CWD/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o edna  -n http://oaei.inrialpes.fr/2006/benchmarks/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment -Dnoinst=1
 </pre>
 This will output the results of the test in the Alignment format,
 required by the organizers, in one file named <tt>edna.rdf</tt> in each test
@@ -69,7 +61,7 @@ directory.
   counterpart.
 </p>
 <!--
-java -cp $CWD/lib/procola.jar fr.inrialpes.exmo.align.util.GroupAlign -o ola-noinst -n http://oaei.inrialpes.fr/2005/benchmarks/101/onto.rdf -i ca.umontreal.iro.ola.OLAlignment -Dnoinst=1
+java -cp $CWD/lib/procola.jar fr.inrialpes.exmo.align.util.GroupAlign -o ola-noinst -n http://oaei.inrialpes.fr/2006/benchmarks/101/onto.rdf -i ca.umontreal.iro.ola.OLAlignment -Dnoinst=1
 -->
 
 <h3>The directory tests</h3>
@@ -164,7 +156,7 @@ reference alignments look for their ontologies on Internet.
   of the Alignment API).</p>
 
 <p>Instructions for implementing the API can be found in 
-<a href="http://co4.inrialpes.fr/align/align.pdf">the API documentation</a>.</p>
+<a href="http://gforge.inria.fr/docman/view.php/117/251/align.pdf">the API documentation</a>.</p>
 
 <p>This basically amounts to define a subclass of <tt>BasicAlignment</tt>,
   getting its parameters from a <tt>Parameters</tt> structure and to
@@ -192,8 +184,8 @@ Such a parameter file can be sent to the organizers of the evaluation.
 
 
 <hr />
-<center><small>http://oaei.ontologymatching.org/2005/align.html</small></center>
+<center><small>http://oaei.ontologymatching.org/2006/align.html</small></center>
 <hr />
-$Id: align.html,v 1.10 2006/01/11 17:22:34 euzenat Exp $
+$Id: align.html,v 1.1 2006/05/28 20:30:32 euzenat Exp euzenat $
 </body>
 </html>
