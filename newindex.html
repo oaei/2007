@@ -29,8 +29,8 @@ The 2005 results are available <a href="results">here</a>.
   suggests the need to establish a consensus for evaluation of these methods. 
 Since 2004, <a href="http://oaei.ontologymatching.org">OAEI</a> organizes evaluation campaigns aiming at
   evaluating ontology matching technologies (see
-  <a href="http://oeai.ontologymatching.org/2004">http://oeai.ontologymatching.org/2004</a>
-  and <a href="http://oeai.ontologymatching.org/2005">http://oeai.ontologymatching.org/2005</a>).</p>
+  <a href="http://oaei.ontologymatching.org/2004">http://oaei.ontologymatching.org/2004</a>
+  and <a href="http://oaei.ontologymatching.org/2005">http://oaei.ontologymatching.org/2005</a>).</p>
 <p>The OAEI 2006 campaign is
   associated to the <a href="http://iswc2006.semanticweb.org">ISWC</a>
   <a href="http://om2006.ontologymatching.org">Ontology matching
@@ -56,18 +56,45 @@ Since 2004, <a href="http://oaei.ontologymatching.org">OAEI</a> organizes evalua
 <dt><a href="">anatomy</a></dt><dd>The <b>anatomy</b> real world case covers the domain 
   of body anatomy and will consists of two ontologies with an approximate size 
   of several 10k classes and several dozen of relations.</dd>
-<dt><a href="">jobs</a></dt><dd></dd>
+<dt><a href="">jobs</a></dt><dd>The <b>jobs</b> use case is an industry
+evaluated real world business case. A company has a need to improve job
+portal functionality with semantic technologies. To enable higher precision
+in retrieval of relevant job offers or applicants, OWL
+ontologies from the employment sector are used to describe jobs and job
+seekers and semantic matching with regard to these ontologies provides the
+improved results. For
+confidentiality reasons, the test will be run by the participant
+with software provided by the company team. This will involve
+instrumenting the current company software for using the
+alignments and running the integration task against real results
+on this basis.</dd>
 </dl></dd>
 <dt>Directories and thesauri</dt><dd>
 <dl compact="1">
 <dt><a href="">directory</a></dt><dd>The <b>directory</b> real world case consists of alignming web
   sites directory (like open directory or Yahoo's). It is more than
   two thousand elementary tests.</dd>
-<dt><a href="http://www.few.vu.nl/~wrvhage/oaei2006">food</a></dt><dd></dd></dl></dd>
+<dt><a href="http://www.few.vu.nl/~wrvhage/oaei2006">food</a></dt><dd>Two
+       SKOS thesaurus about <b>food</b> have to be aligned using
+       relations from the SKOS Mapping vocabulary. Each participant is
+       asked to evaluate part of the results of the other
+       participants. These evaluations are collected and validated by
+       domain experts.</dd></dl></dd> 
 <dt>Consensus workshop: <a href="">conference</a></dt><dd>
 </dd>
 </dl>
 </p>
+<p>We summarize below the variation between the results expected by
+  these tests (all results are given in the Alignment format):
+<table>
+<tr><td>test</td><td>language</td><td>relations</td><td>confidence</td><td></td></tr>
+<tr><td>benchmarks</td><td>OWL</td><td>=</td><td>[0 1]</td><td>open</td></tr>
+<tr><td>anatomy</td><td>OWL</td><td>=</td><td>1</td><td>blind</td></tr>
+<tr><td>jobs</td><td>OWL</td><td>=</td><td>[0 1]</td><td>external</td></tr>
+<tr><td>directory</td><td>OWL</td><td>=</td><td>1</td><td>blind</td></tr>
+<tr><td>food</td><td>SKOS?</td><td>exactMatch,<br />narrowMatch,<br />broadMatch</td><td>1</td><td>blind+consensual</td></tr>
+<tr><td>conference</td><td>OWL-DL</td><td>=, <=</td><td>1</td><td>blind+consensual</td></tr>
+</table></p>
 
 <h2>Evaluation process</h2>
 
@@ -268,7 +295,8 @@ participant.zip
     <ul 1>
       <li>4.1) Links to the set of provided alignments (in align format)</li>
       <li>4.2) Matrix format<br />
-      If possible provide the run time values in hh.mn.ss.mms format.</li>
+	Of course, this applies to non-blind tests.
+	If possible provide the run time values in hh.mn.ss.mms format.</li>
     </ul>
   </li>
 </ul>
@@ -334,7 +362,8 @@ Heiner Stuckenschmidt, Universität Mannheim,<br />
 York Sure, Universität Karlsruhe,<br />
 Raphaël Troncy, CWI, Amsterdam,<br />
 Petko Valtchev, University of Montréal,<br />
-Mikalaï Yatskevich, Universitá di Trento</p>
+Mikalaï Yatskevich, Universitá di Trento
+</p>
 
 <!--h1>Acknowledgements</h1>
 <p>
@@ -355,7 +384,7 @@ Mikalaï Yatskevich, Universitá di Trento</p>
 <hr />
 <center><small>http://oaei.ontologymatching.org/2006</small></center>
 <hr />
-$Id: newindex.html,v 1.1 2006/05/24 15:07:23 euzenat Exp euzenat $
+$Id: newindex.html,v 1.2 2006/05/28 20:59:58 euzenat Exp euzenat $
 </body>
 </html>
 
