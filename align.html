@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Ontology Alignment Evaluation Initiative::2006</title>
+<title>Ontology Alignment Evaluation Initiative::2007</title>
 <style type="text/css">
 <!--
 a:link {  color: #0074CA; text-decoration: none}
@@ -15,7 +15,7 @@ a:visited {  color: #0084E6; text-decoration: none}
 <a href=".."><img border="0" width="20%" src="../oaei.jpg" align="right" /></a>
 
 <h1>Alignment format and API</h1>
-<h1>2006 Campaign</h1>
+<h1>2007 Campaign</h1>
 
 <h2>The Alignment format</h2>
 
@@ -28,7 +28,7 @@ a:visited {  color: #0084E6; text-decoration: none}
 
 <h2>How to use the alignment API for generating evaluation results</h2>
 
-<p>The instructions here work with version 2.3 of the alignment API</p>
+<p>The instructions here work with version 3.0 of the alignment API</p>
 
 <h3>Getting the API</h3>
 
@@ -45,7 +45,7 @@ a:visited {  color: #0084E6; text-decoration: none}
 <pre>
 $ mkdir test
 $ cd test
-$ curl http://co4.inrialpes.fr/align/align.zip -o align.zip
+$ curl http://gforge.inria.fr/frs/download.php/1775/align-3.0.zip -o align.zip
 $ unzip align.zip
 </pre>
 
@@ -55,7 +55,7 @@ $ unzip align.zip
 <pre>
 $ setenv CWD `pwd`
 $ java -jar lib/procalign.jar --help
-$ java -jar lib/procalign.jar file://localhost$CWD/rdf/onto1.owl file://localhost$CWD/rdf/onto2.owl
+$ java -jar lib/procalign.jar file://$CWD/rdf/onto1.owl file://$CWD/rdf/onto2.owl
 </pre>
 The last instruction should output some XML.
 </p>
@@ -67,10 +67,10 @@ The last instruction should output some XML.
 
 <h4>The systematic benchmark tests</h4>
 <pre>
-$ curl http://oaei.ontologymatching.org/2006/benchmarks/bench.zip -o bench.zip
+$ curl http://oaei.ontologymatching.org/2007/benchmarks/bench.zip -o bench.zip
 $ unzip bench.zip
 $ cd benchmarks
-$ java -cp $CWD/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o stringeq  -n http://oaei.inrialpes.fr/2006/benchmarks/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.StringDistAlignment -Dnoinst=1
+$ java -cp $CWD/lib/procalign.jar fr.inrialpes.exmo.align.util.GroupAlign -o stringeq  -n http://oaei.inrialpes.fr/2007/benchmarks/101/onto.rdf -i fr.inrialpes.exmo.align.impl.method.StringDistAlignment -Dnoinst=1
 </pre>
 This will output the results of the test in the Alignment format,
 required by the organizers, in one file named <tt>stringeq.rdf</tt> in each test
@@ -81,7 +81,7 @@ directory.
   counterpart.
 </p>
 <!--
-java -cp $CWD/lib/procola.jar fr.inrialpes.exmo.align.util.GroupAlign -o ola-noinst -n http://oaei.inrialpes.fr/2006/benchmarks/101/onto.rdf -i ca.umontreal.iro.ola.OLAlignment -Dnoinst=1
+java -cp $CWD/lib/procola.jar fr.inrialpes.exmo.align.util.GroupAlign -o ola-noinst -n http://oaei.ontologymatching.org/2007/benchmarks/101/onto.rdf -i ca.umontreal.iro.ola.OLAlignment -Dnoinst=1
 -->
 
 <h4>The directory tests</h4>
@@ -111,7 +111,7 @@ $ curl
 $ curl &amp;The FMA file as indicated&amp;
 $ unzip FMA.zip
 $ unzip OpenGalen.zip
-$ java -jar $CWD/lib/procalign.jar -o edna.rdf file://localhost$CWD/anatomy/OpenGalen.owl file://localhost$CWD/anatomy/FMA.owl -i fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment
+$ java -jar $CWD/lib/procalign.jar -o edna.rdf file://$CWD/anatomy/OpenGalen.owl file://$CWD/anatomy/FMA.owl -i fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment
 </pre>
 This will output the results of the test in the Alignment format,
 required by the organizers, in one file named <tt>edna.rdf</tt> in each test
@@ -195,17 +195,17 @@ Such a parameter file can be sent to the organizers of the evaluation.
 <p>Parameter file are in a simple XML format:
 <pre>
 &lt;Whatever>
-&lt;param name="<i>name1</i>"><i>value1</i>&lt;/param>
+&lt;param name="<i>name<sub>1</sub></i>"><i>value<sub>1</sub></i>&lt;/param>
 ...
-&lt;param name="<i>namen</i>"><i>valuen</i>&lt;/param>
+&lt;param name="<i>name<sub>n</sub></i>"><i>value<sub>n</sub></i>&lt;/param>
 &lt;/Whatever>
 </pre>
 </p>
 
 
 <hr />
-<center><small>http://oaei.ontologymatching.org/2006/align.html</small></center>
+<center><small>http://oaei.ontologymatching.org/2007/align.html</small></center>
 <hr />
-$Id: align.html,v 1.6 2006/06/16 16:28:07 euzenat Exp euzenat $
+$Id: align.html,v 1.7 2006/07/22 09:40:16 euzenat Exp euzenat $
 </body>
 </html>
