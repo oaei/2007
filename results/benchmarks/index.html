@@ -1,0 +1,326 @@
+<html>
+<head>
+<title>Ontology Alignment Evaluation 2006::benchmarks results</title>
+</head>
+<body>
+
+<a href=".."><img width="20%" border="0" src="../../../oaei.jpg"
+		  align="right" /></a>
+
+<table border="1"><tr><td bgcolor="orange"><b>Note:</b>The first results provided at the Ontology matching workshop
+  and reproduced in its proceedings on CD-Rom were incorrect as far as
+  line 2xx of Table 1 and Table 2 were concerned.</td></tr></table>
+
+<h1>Benchmark results</h1>
+
+<p>The benchmark test case was exactly the same as last year. The only
+  modification was, as announced, in the standardisation of the
+  encoding on UTF-8 instead of ISO-8859-1.</p>
+<p>The evaluation has been performed on the files provided by the
+  participants (available <a href="EXTRACTED.zip">here</a>) which have
+  been processed by the following <a href="process.sh">script</a>).</p>
+
+<h2>Precision and recall results</h2>
+
+<p>The first table provides the consolidated results, by groups of tests. 
+We display the results of participants as well as those given by some very simple edit distance algorithm on labels (edna).
+Like last year, the computed values here are real precision and recall and not a simple average of precision and recall. 
+The full results are on the OAEI web site.
+<!-- JE: this is untrue. In fact, it gives the correct value and the harmonic means is correct, but it displays many warnings as it cannot load the ontologies
+%Like last year test 102 has been retracted from the results (all participants had it correct) because it break our way of computing 
+%harmonic means.
+%These results are only temporary especially since they take into account the test number 102  and 302 in an incorrect way
+%(this has a uniform effect: even in Figure~\ref{fig:prgraph}, refalign cannot reach the value 1).--></p>
+
+<p>These results show already that three systems are relatively close (coma, falcon and RiMOM). The RiMOM system is slightly
+ahead of the others on these raw results. The DSSim system obviously favoured precision over recall but its precision
+degrades with "real world" 3xx series. No system had strictly lower performance than edna (simple edit distance).</p>
+
+<p>The results have also been compared with the three measures proposed in [Ehrig2005a] last year (symmetric, effort-based and oriented). These are generalisation
+of precision and recall in order to better discriminate systems that slightly miss the target from those which are grossly wrong.
+In the present case, the three measures provide the same results. This is not really surprising given the closeness of these
+measures. As expected, they can only improve over traditional precision and recall. The improvement affects
+all the algorithms, but this is not always strong enough for being
+  reflected in the aggregated results (the variations can be observed
+  in the full results
+  for <a href="symresults.html">Symmetric</a>, <a href="ordresults.html">Oriented</a> and <a href="effresults.html">Effort-based</a>).
+Moreover, the new measures do not dramatically change the evaluation of the participating systems.</p>
+
+<p align="center">
+<table border='2' frame='sides' rules='groups'>
+<colgroup align='center' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='2' />
+<thead valign='top'><tr><th>algo</th>
+<th colspan='2'>refalign</th>
+<th colspan='2'>edna</th>
+<th colspan='2'>automs</th>
+<th colspan='2'>coma</th>
+<th colspan='2'>DSSim</th>
+<th colspan='2'>falcon</th>
+<th colspan='2'>hmatch</th>
+<th colspan='2'>jhuapl</th>
+<th colspan='2'>OCM</th>
+<th colspan='2'>prior</th>
+<th colspan='2'>RiMOM</th>
+</tr></thead>
+<tbody>
+<tr><td>test</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+<td>Prec.</td>
+<td>Rec.</td>
+</tr></tbody>
+<tbody>
+<tr bgcolor="lightblue"><td>1xx</td><td>1.00</td>
+<td>1.00</td>
+<td>0.96</td>
+<td>1.00</td>
+<td>0.94</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.98</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.91</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.95</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+
+<tr><td>2xx</td><td>1.00</td>
+<td>1.00</td>
+<td>0.90</td>
+<td>0.49</td>
+<td>0.94</td>
+<td>0.64</td>
+<td>0.96</td>
+<td>0.82</td>
+<td>0.99</td>
+<td>0.49</td>
+<td>0.91</td>
+<td>0.85</td>
+<td>0.83</td>
+<td>0.51</td>
+<td>0.20</td>
+<td>0.86</td>
+<td>0.93</td>
+<td>0.51</td>
+<td>0.95</td>
+<td>0.58</td>
+<td>0.97</td>
+<td>0.87</td>
+</tr>
+
+<tr bgcolor="lightblue"><td>3xx</td><td>1.00</td>
+<td>1.00</td>
+<td>0.94</td>
+<td>0.61</td>
+<td>0.91</td>
+<td>0.70</td>
+<td>0.84</td>
+<td>0.69</td>
+<td>0.90</td>
+<td>0.78</td>
+<td>0.89</td>
+<td>0.78</td>
+<td>0.78</td>
+<td>0.57</td>
+<td>0.18</td>
+<td>0.50</td>
+<td>0.89</td>
+<td>0.51</td>
+<td>0.85</td>
+<td>0.80</td>
+<td>0.83</td>
+<td>0.82</td>
+</tr>
+
+
+<tr bgcolor="yellow"><td>H-mean</td><td>1.00</td>
+<td>1.00</td>
+<td>0.91</td>
+<td>0.54</td>
+<td>0.94</td>
+<td>0.67</td>
+<td>0.96</td>
+<td>0.83</td>
+<td>0.98</td>
+<td>0.55</td>
+<td>0.92</td>
+<td>0.86</td>
+<td>0.84</td>
+<td>0.55</td>
+<td>0.22</td>
+<td>0.85</td>
+<td>0.93</td>
+<td>0.55</td>
+<td>0.95</td>
+<td>0.63</td>
+<td>0.96</td>
+<td>0.88</td>
+</tr>
+
+<tr><td>Symm</td><td>1.00</td><td>1.00</td>
+<td>0.91</td><td>0.54</td>
+<td>0.94</td><td>0.68</td>
+<td>0.96</td><td>0.83</td>
+<td>0.99</td><td>0.55</td>
+<td>0.94</td><td>0.89</td>
+<td>0.85</td><td>0.56</td>
+<td>0.22</td><td>0.87</td>
+<td>0.93</td><td>0.55</td>
+<td>0.96</td><td>0.64</td>
+<td>0.97</td><td>0.89</td>
+</tr>
+
+<tr bgcolor="lightblue"><td>Ord</td><td>1.00</td><td>1.00</td>
+<td>0.91</td><td>0.54</td>
+<td>0.94</td><td>0.68</td>
+<td>0.96</td><td>0.83</td>
+<td>0.99</td><td>0.55</td>
+<td>0.94</td><td>0.89</td>
+<td>0.85</td><td>0.56</td>
+<td>0.22</td><td>0.87</td>
+<td>0.93</td><td>0.55</td>
+<td>0.96</td><td>0.64</td>
+<td>0.97</td><td>0.89</td>
+</tr>
+
+<tr><td>Effort</td><td>1.00</td><td>1.00</td>
+<td>0.91</td><td>0.54</td>
+<td>0.94</td><td>0.68</td>
+<td>0.96</td><td>0.83</td>
+<td>0.99</td><td>0.55</td>
+<td>0.94</td><td>0.89</td>
+<td>0.85</td><td>0.56</td>
+<td>0.22</td><td>0.87</td>
+<td>0.93</td><td>0.55</td>
+<td>0.96</td><td>0.64</td>
+<td>0.97</td><td>0.89</td>
+</tr>
+
+</tbody></table>
+
+Table 1: Means of results obtained by participants on the benchmark test case
+(corresponding to harmonic means). The full results are available <a href="results.html">here</a>.</p>
+
+<p>All algorithms have their better score with the 1xx test series;
+there is no particular order between the two other series. Again, it is more interesting to look at the 2xx series structure to distinguish the strengths of algorithms.</p>
+
+<h2>Precision/recall graphs</h2>
+
+<p>This year the apparently best algorithms provided their results with confidence measures. It is thus possible to draw precision/recall curves in order to compare them.</p>
+
+<p>We provide in Figure&nbsp;1, the precision and recall graphs of this year. 
+They involve only the results of participants who provided confidence
+  measures different of 1 or 0. They also feature the results for edit
+  distances on class names (edna) and the results of Falcon last year
+  (falcon-2005). Note that the graph for falcon2005 is not really
+  accurate (since falcon2005 provided 1/0 alignments last year).
+ This graph has been drawn with only
+  technical adaptation of the one used for TREC.
+Moreover, for reason of time these graphs have been computed by
+  averaging the graphs of each tests (instead to pure precision and
+  recall).</p> 
+
+<p align="center">
+<img src="prgraph.png" width="70%"/><br />
+Figure 1: Precision/recall graphs between the system which provided confidence
+values in their results.
+</p>
+
+<p>Contrary to last year, we have three systems competing at the
+  higest level (falcon, coma and RiMOM) and a gap between these and
+  the next systems. No system is significantly
+  outperformed by standard edit distance (edna).</p>
+
+<h2>Comparison with previous years</h2>
+
+<p>On the basis of the 2004 tests, the three best systems (falcon,
+  coma and RiMOM) arrive at the level of last year's best system
+  (falcon). However, no system outperform it (see Table&nbsp;2).</p>
+
+<p>Unfortunately no representant of the group of systems that followed
+  falcon last year is present this year. Like last year we have
+  compared the results of this year's systems with the previous years
+  on the basis of the 2004 tests.</p>
+
+<p align="center">
+<table border='2' frame='sides' rules='groups'>
+<colgroup align='center' />
+<colgroup align='center' span='4' />
+<colgroup align='center' span='2' />
+<colgroup align='center' span='6' />
+<thead valign='top'><tr><th>Year</th>
+<th colspan='4'>2004</th>
+<th colspan='2'>2005</th>
+<th colspan='6'>2006</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>System</td>
+<td colspan='2'>fujitsu</td>
+<td colspan='2'>stanford</td>
+<td colspan='2'>falcon</td>
+<td colspan='2'>RiMOM</td>
+<td colspan='2'>falcon</td>
+<td colspan='2'>coma</td>
+</tr>
+<tr><td>test</td>
+<td>Prec.</td><td>Rec.</td><td>Prec.</td><td>Rec.</td><td>Prec.</td><td>Rec.</td><td>Prec.</td><td>Rec.</td><td>Prec.</td><td>Rec.</td><td>Prec.</td><td>Rec.</td>
+<tr><td>1xx</td><td>0.99</td><td>1.00</td><td>0.99</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+<tr bgcolor="lightblue"><td>2xx</td><td>0.93</td><td>0.84</td><td>0.98</td><td>0.72</td><td>0.98</td><td>0.97</td><td>1.00</td><td> 0.98</td><td> 0.97</td><td> 0.97</td><td> 0.99</td><td> 0.97</td></tr>
+<tr><td>3xx</td><td>0.60</td><td>0.72</td><td>0.93</td><td>0.74</td><td>0.93</td><td>0.83</td><td>0.83</td><td>0.82</td><td>0.89</td><td> 0.78</td><td> 0.84</td><td> 0.69</td></tr>
+<tr bgcolor="yellow"><td>H-means</td><td>0.88</td><td>0.85</td><td>0.98</td><td>0.77</td><td>0.97</td><td>0.96</td><td> 0.97</td><td> 0.96</td><td> 0.97</td><td> 0.95</td><td> 0.98</td><td> 0.94</td></tr>
+</table>
+Table 2: Evolution of the best scores over the years (on the basis of 2004 tests).
+</p>
+
+<h2>References</h2>
+
+<p>[Ehrig&nbsp;2005] Marc Ehrig and Jérôme Euzenat. Relaxed precision and recall for ontology matching. In Ben Ashpole, Jérôme Euzenat, Marc Ehrig, and Heiner Stuckenschmidt, editors, Proc. K-Cap 2005 workshop on Integrating ontology, Banff (CA), pages 25-32, 2005.</p>
+
+<hr />
+<small>
+<center>http://oaei.ontologymatching.org/2006/results/benchmarks</center>
+<hr />
+$Id: index.html,v 1.6 2006/12/03 19:37:16 euzenat Exp $
+</small>
+
+</body></html>
