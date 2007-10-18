@@ -32,14 +32,17 @@ This year, no modification has been made since the last year benchmark suite.
 <p>13 systems participated in the benchmark track of this year's campaign.
 </p>
 <p>The evaluation has been performed on the files provided by the
-  participants (available <a href="EXTRACTED.zip">here</a>) which have
+  participants (available <a href="../zip/">here</a>) which have
   been processed by the
-  following <a href="process.sh">script</a>).</p>
+  following <a href="runtests.sh">script</a> and the
+  following <a href="striputf16.pl">perl script</a>).
+The full set of normalised alignments is also <a href="RESULTS.zip">available</a>.
+</p>
 
 
 <h2>Precision and recall results</h2>
 
-<p>Table&nbsp;1 provides the consolidated results, by groups of tests.
+<p>Table&nbsp;1 provides the consolidated results by groups of tests.
 We display the results of participants as well as those given by some simple edit distance algorithm on labels (edna).
 The computed values are real precision and recall and not an average of precision and recall.</p>
 
@@ -55,7 +58,7 @@ of precision and recall in order to better discriminate systems that slightly mi
 The three measures provide the same results, so they have been displayed only once in Table&nbsp;1 under the label "Ext". This is not really surprising given the proximity of these
 measures. As expected, they only improve over traditional precision and recall.
 Again, the new measures do not dramatically change the evaluation of the participating systems (all score are improved and the six leading systems are closer to each others). This indicates that the not immediately best systems (Falcon, OLA2) could certainly easily be corrected to reach the level of the best ones (RiMOM in particular).
-Since last year the implementation of the precision and recall evaluator has changed.
+Since last year, the implementation of the precision and recall evaluator has changed.
 As a consequence, a number of results which would have been rejected last year,
 and then corrected by the participants, were accepted this year.
 As a consequence, now, the extended precision and recall reject them: this concerns the systems marked with "Error".
@@ -315,8 +318,16 @@ confidence measures different of 1 or 0 (see the table in
 the <a href="../index.html">Summary page</a>).
 They also feature the results for edit distance on class names (edna) and the results of previous years (Falcon-2005 and RiMOM-2006). 
 This graph has been drawn with only technical adaptation of the technique used in TREC.
-Moreover, due to lack of time, these graphs have been computed by averaging the graphs of
+Moreover, these graphs have been computed by averaging the graphs of
 each of the tests (instead to pure precision and recall).</p>
+
+<p>
+The results still highlight the performances of the same six systems.
+Like the two previous years there is a gap between these systems and their followers.
+The good news is that one system (OLA2) has achieved to fill this gap without significantly changing its
+strategy (Disclosure: the author of these lines is a member of the
+OLA2 team).</p>
+
 
 <p align="center">
 <img src="HTML/prgraph.png"/><br />
@@ -324,16 +335,10 @@ Figure 2: Precision/recall graphs.
 They cut the results given by the participants under a threshold necessary for achieving <i>n</i>% recall and
 compute the corresponding precision. Systems for which these graphs are not meaningful
 (because they did not provide graded confidence values) are drawn in dashed lines.
-We remind the graphs for the best systems of the previous years, namely of Falcon in 2005 and RiMOM in 2006..
+We remind the graphs for the best systems of the previous years, namely of Falcon in 2005 and RiMOM in 2006.
 </p>
 
 <h2>Comparison with previous years</h2>
-
-<p>
-Like the two previous years there is a gap between these systems and their followers.
-The good news is that one system (OLA2) has achieved to fill this gap without significantly changing its
-strategy (Disclosure: the author of these lines is a member of the
-OLA2 team).</p>
 
 <p>We have compared the results of this year's systems with the results
 of the previous years on the basis of 2004 tests, see Table&nbsp;2.
@@ -388,7 +393,7 @@ Table 2: Evolution of the best scores over the years (on the basis of 2004 tests
 <small>
 <center>http://oaei.ontologymatching.org/2007/results/benchmarks/</center>
 <hr />
-$Id: index.html,v 1.1 2007/10/17 14:03:54 euzenat Exp euzenat $
+$Id: index.html,v 1.2 2007/10/17 14:51:26 euzenat Exp euzenat $
 </small>
 
 </body></html>
