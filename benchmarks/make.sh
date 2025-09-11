@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: make.sh,v 1.26 2007/05/15 21:40:10 euzenat Exp euzenat $
+# $Id: make.sh,v 1.27 2007/05/15 21:44:10 euzenat Exp $
 # XSLT based test generation.
 # //pass1: generate test files
 # //pass2: fix URI
