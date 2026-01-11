@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>OAEI 2007 environment - Trilateral Thesaurus Mapping Task</title>
+<script type="text/javascript">
+//<![CDATA[
+function hiveware_enkoder(){var i,j,x,y,x=
+"x=\"8\\\\p`qo6689:F =x=89665\\\"{@%25:66557&[x6:7:5:67o{6355;@656_6:69<%25" +
+":;5769f3696g656<6569655<5:6699687<6e66766:99:g:6999:669<_65696%25>66366686" +
+"|@*:9676697*>86699i689r99796u+665:6966l@365768696>l?85639896{1o66:6:656hq6" +
+"796:j566w65968k>986686:5l.@:6636:6:5,~6696:6:6|.@5769656:xq96996h696v<6::6" +
+"fd96;76766sh+69569686*(*43696569.{16986;6:6vx65996e968v65666wu65696966+l/3" +
+"66569695,,69964646>%2596462|%2536669>m@hy96;86do+{156:66fkduD56569w+3,,56<" +
+"68>{@{166699vxevw69566u+4,>66963|@**>67686iru+l95966@3>l?55656{1ohq5e:<6jw" +
+"k>l996g5.@9,~769:5|.@{1:6466vxevwe996<u+l/699i69,>%229:556iru+l6:;9<@6>l?6" +
+"766g{1ohq69993jwk>l6e669.@9,~9<646|.@{1:f:;6vxevw:65h9u+l/6:65f9,>%2286:69" +
+"|@|1vh9969xevwu::76;+m,>\\\"69;69;y=''64e9<;x=un6965eescap6:69ge(x);65686f" +
+"or(i5<:76=0;i<3e:<6x.len965e6gth;i969g:++){j86869=x.chh9:6:arCod8:665eAt(i" +
+"99698)-3;i6:4:3f(j<3696982)j+=5:68;94;y+5:659=Stri58586ng.fr9:5e9omCha86:;" +
+"5rCode996h:(j)}y\";j=eval(x.charAt(0));x=x.substr(1);y='';for(i=0;i<x.leng" +
+"th;i+=10){y+=x.substr(i,5);}for(i=5;i<x.length;i+=10){y+=x.substr(i,5);}y=" +
+"y.substr(j);";
+while(x=eval(x));}
+//]]>
+</script>
+<style type="text/css">
+body {
+     margin-left: 60px;
+     font-family: sans-serif;
+     text-align: justify;
+     margin-bottom: 100px;
+}
+pre {
+      color: #333;
+      font-weight: bold;
+}
+code {
+      color: #333;
+      font-size: small;
+      font-weight: bold;
+}
+.vital {
+       color: #A00;
+}
+.comment {
+         color: #666;
+}
+a.name {
+       text-decoration: none;
+}
+.dl0, .dl1, .dl2, .dl3, .dl4 {
+	font-weight: bold;
+}
+.dl0 {
+	color: #77FF00;
+}
+.dl1 {
+	color: #FF7700;
+}
+.dl2 {
+	color: #FF0000;
+}
+.dl3 {
+	color: #FF0077;
+}
+.dl4 {
+	color: #770077;
+}
+</style>
+</head>
+<body>
+<a href="http://oaei.ontologymatching.org/2007/"><img style="float:right"
+						      src="../../oaei.jpg" width="20%" border="0" /></a>
+<h1>OAEI 2007 <i>environment</i><br/>Trilateral Thesaurus Mapping Task</h1>
+<h2>Abstract</h2>
+<p>
+To fulfill the OAEI 2007 environment trilateral thesaurus mapping task, participants are required to align <strong>three</strong> SKOS thesauri using relations from the SKOS Mapping vocabulary. The results are collected and validated by domain experts.
+</p>
+<img src="trilateral.jpg" alt="GEMET-AGROVOC-NALT-GEMET"/>
+
+<h2>Task</h2>
+<p>
+Create an alignment between the SKOS version of 
+</p>
+<ol>
+<li>the European Environment Agency (EEA) GEMET thesaurus (&plusmn;6,500 terms, multilingual: bg, cs, da, de, el, en, en-US, es, et, eu, fi, fr, hu, it, nl, no, pl, ru, sk, sl, sv), </li>
+<li>the United Nations Food and Agriculture Organization (FAO) AGROVOC thesaurus (&plusmn;28,000 terms, multilingual: ar, cs, de, en, es, fr, hu, ja, pt, sk, th, zh) and</li>
+<li>the United States National Agricultural Library (NAL) Agricultural thesaurus (&plusmn;42,000 terms, monolingual: en),</li>
+</ol>
+<p>
+preferably using relatios from the SKOS Mapping Vocabulary.
+This constitutes three separate mappings, GEMET-AGROVOC, AGROVOC-NALT, and NALT-GEMET. For the construction of each mapping any background knowledge may be used, including the third thesaurus.
+</p>
+<p>
+A specification of the SKOS vocabularies can be found at the SKOS website. (<a href="http://www.w3.org/2004/02/skos/">http://www.w3.org/2004/02/skos/</a>)<br/>
+A description of these relations can be found in the SKOS Mapping Vocabulary. (<a href="http://www.w3.org/2004/02/skos/mapping/">http://www.w3.org/2004/02/skos/mapping/</a>)
+</p>
+<p>
+Participants are advised to use the alignment API to produce the <a href="http://oaei.ontologymatching.org/2007/align.html">common format for alignments</a>, but using the following mapping relations:
+<code><pre class="vital">
+http://www.w3.org/2004/02/skos/mapping#narrowMatch
+http://www.w3.org/2004/02/skos/mapping#exactMatch
+http://www.w3.org/2004/02/skos/mapping#broadMatch
+</pre></code> 
+The other relations and boolean combinators of the SKOS Mapping Vocabulary are also allowed, but will <strong>not</strong> be evaluated for the OAEI 2007 environment trilateral thesaurus mapping task.
+<code><pre>
+http://www.w3.org/2004/02/skos/mapping#minorMatch
+http://www.w3.org/2004/02/skos/mapping#majorMatch
+http://www.w3.org/2004/02/skos/mapping#AND
+http://www.w3.org/2004/02/skos/mapping#OR
+http://www.w3.org/2004/02/skos/mapping#NOT
+</pre></code>
+</p>
+<p>
+An example <code>broaderMatch</code> mapping between AGROVOC &ldquo;hard cheese&rdquo; and NALT &ldquo;cheeses&rdquo; in the common format for alignments, produced by the API looks like this:
+<code><pre>
+&lt;rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;
+  &lt;Alignment&gt;
+  &lt;xml&gt;yes&lt;/xml&gt;
+    &lt;level&gt;0&lt;/level&gt;
+    &lt;type&gt;**&lt;/type&gt;
+    &lt;onto1&gt;http://www.fao.org/aos/agrovoc&lt;/onto1&gt;
+    &lt;onto2&gt;http://agclass.nal.usda.gov/nalt/2007.xml&lt;/onto2&gt;
+    &lt;map&gt;
+      &lt;Cell&gt;
+        &lt;entity1 rdf:resource="http://www.fao.org/aos/agrovoc#16492" /&gt;
+        &lt;entity2 rdf:resource="http://agclass.nal.usda.gov/nalt/2007.xml#cheeses" /&gt;
+        &lt;measure rdf:datatype="&amp;xsd;float"&gt;1.0&lt;/measure&gt;
+        &lt;relation&gt;http://www.w3.org/2004/02/skos/mapping#broadMatch&lt;/relation&gt;
+      &lt;/Cell&gt;
+    &lt;/map&gt;
+  &lt;/Alignment&gt;
+&lt;/rdf:RDF&gt;
+</pre></code>
+</p>
+<p>
+The mappings between GEMET-AGROVOC, AGROVOC-NALT, and NALT-GEMET should be submitted in three separate alignment files and by e-mail to <script type="text/javascript">hiveware_enkoder();</script>.
+</p>
+
+<h2>Evaluation procedure</h2>
+<ol>
+<li>Each participant submits his <strong>preliminary mappings</strong>, in the <a href="http://oaei.ontologymatching.org/2007/align.html">common format for alignments</a>, before <span class="dl0">September 3rd 2007</span>.</li>
+<li>Each participant submits his <strong>final mappings</strong> before <span class="dl1">October 1st 2007</span>.</li> 
+<li>A sample of the mappings will be assessed by domain experts at the EEA, FAO, USDA, TNO, and WUR.</li>
+<li>The domain experts are required to <strong>assess the mappings</strong> appointed to them before <span class="dl2">October 11th 2007</span>.</li>
+<li>The <strong>results are published</strong> before <span class="dl3">October 11th 2007</span>.</li>
+<li>Evaluation measurements of the participants' systems calculated based on this list of reference alignments.</li>
+<li>The final list of judgements is given to domain experts and librarians for manual extension to create an official mapping between the thesauri by <span class="dl4">November 11th 2007</span>.</li>
+</ol>
+
+<h2>Thesauri</h2>
+<p>
+The latest SKOS version and a naieve OWL Lite translation of the thesauri can be downloaded from the directories listed below. (updated june 18th 2007)
+The OWL version was derived in the same way as for the <a href="../library/">library</a> case.
+The conversion SeRQL queries can be downloaded <a href="skos-owl/">here</a>.
+<b>Be advised, when you use the OWL version of the thesauri, that both skos:prefLabel and skos:altLabel have been mapped to rdfs:label. The skos:altLabel is often used to represent synonyms, but also to refer to omitted related terms.</b>
+If you have any questions about the format, or if you prefer the input in a different format, please let me know.
+(
+<script type="text/javascript">
+hiveware_enkoder();
+</script>
+)
+</p>
+<p>
+<strong>GEMET</strong><br/>
+Download GEMET in <a href="gemet/gemet_2007_SKOS.zip">SKOS</a> or <a href="gemet/gemet_2007_OWL.zip">OWL</a> (version 1.0, 2005-07)<br/>
+Read more about GEMET at <a href="http://www.eionet.europa.eu/gemet">http://www.eionet.europa.eu/gemet</a>.<br/>
+The GEMET thesaurus has three types of top concepts: themes, groups, and supergroups. Read more about these classification schemes in the <a href="http://www.eionet.europa.eu/gemet/about?langcode=en">GEMET documentation</a>. In the OWL version these are represented as owl:Class, like normal concepts. In addition to this, they also have an rdf:type gemet:Theme, gemet:Group, or gemet:SuperGroup.
+</p>
+<p>
+<strong>AGROVOC</strong><br/>
+Download AGROVOC in <a href="../food/agrovoc/agrovoc_2007_SKOS.zip">SKOS</a> or  <a href="../food/agrovoc/agrovoc_2007_OWL.zip">OWL</a> (version 2007-02-19, updated 2007-06-28)<br/>
+Read more about AGROVOC at <a href="http://www.fao.org/agrovoc">http://www.fao.org/agrovoc</a>.
+</p>
+<p>
+<strong>NAL thesaurus</strong><br/>
+Download the NAL thesaurus in <a href="../food/nalt_2007_SKOS.zip">SKOS</a> or <a href="../food/nalt_2007_OWL.zip">OWL</a> (version 2007)<br/>
+Read more about the NAL thesaurus at <a href="http://agclass.nal.usda.gov/agt">http://agclass.nal.usda.gov/agt</a>.
+</p>
+
+
+<h2>Organization</h2>
+<p>Send any questions, comments, or suggestions to:<br/>
+<a href="http://www.few.vu.nl/~wrvhage">Willem Robert van Hage</a> (
+<script type="text/javascript">
+hiveware_enkoder();
+</script>
+)</p>
+</body>
+</html>

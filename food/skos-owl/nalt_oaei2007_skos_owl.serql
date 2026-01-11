@@ -1,0 +1,30 @@
+construct distinct {cs} rdf:type {owl:Ontology},
+   {cs} rdfs:comment {cslab}
+from {cs} rdf:type {skos:ConceptScheme},
+   {cs} dc:title {cslab}
+
+union
+
+construct distinct
+   {x} rdf:type {owl:Class},
+   {x} rdfs:label {pref},
+   {x} rdfs:label {alt},
+   {x} rdfs:label {hid},
+   {x} rdfs:subClassOf {bc},
+   {x} rdfs:seeAlso {rc},
+   {x} rdfs:comment {gsn},
+   {x} rdfs:comment {hisn}
+from {x} rdf:type {skos:Concept},
+   [{x} skos:inScheme {cs} dc:title {cslab}],
+   [{x} skos:prefLabel {pref}],
+   [{x} skos:altLabel {alt}],
+   [{x} skos:hiddenLabel {hid}],
+   [{x} skos:broader {bc}],
+   [{x} skos:related {rc}],
+   [{x} skos:scopeNote {gsn}],
+   [{x} skos:editorialNote {hisn}]
+
+using namespace
+  skos = <http://www.w3.org/2004/02/skos/core#>,
+  owl = <http://www.w3.org/2002/07/owl#>,
+  dc = <http://purl.org/dc/elements/1.1/>

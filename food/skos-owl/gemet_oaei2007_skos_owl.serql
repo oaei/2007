@@ -1,0 +1,56 @@
+construct distinct {cs} rdf:type {owl:Ontology},
+   {cs} rdfs:comment {cslab}
+from {cs} rdf:type {skos:ConceptScheme},
+   {cs} rdfs:label {cslab}
+
+union
+
+construct distinct
+   {x} rdf:type {owl:Class},
+   {x} rdfs:label {pref},
+   {x} rdfs:label {alt},
+   {x} rdfs:label {hid},
+   {x} rdfs:subClassOf {bc},
+   {x} rdfs:subClassOf {gr},
+   {x} rdfs:subClassOf {th},
+   {x} rdfs:seeAlso {rc},
+   {x} rdfs:comment {gsn},
+   {x} rdfs:comment {hisn}
+from {x} rdf:type {skos:Concept},
+   [{x} gemet:group {gr}],
+   [{x} gemet:theme {th}],
+   [{x} skos:inScheme {cs} rdfs:label {cslab}],
+   [{x} skos:prefLabel {pref}],
+   [{x} skos:altLabel {alt}],
+   [{x} skos:hiddenLabel {hid}],
+   [{x} skos:broader {bc}],
+   [{x} skos:related {rc}],
+   [{x} skos:scopeNote {gsn}],
+   [{x} skos:editorialNote {hisn}]
+
+union
+
+construct distinct
+   {x} rdf:type {owl:Class},
+   {x} rdf:type {gemet:Theme},
+   {x} rdfs:label {pref}
+from {x} rdf:type {gemet:Theme},
+   [{x} rdfs:label {pref}]
+
+union
+
+construct distinct
+   {x} rdf:type {owl:Class},
+   {x} rdf:type {gemet:Group},
+   {sgr} rdf:type {gemet:SuperGroup},
+   {x} rdfs:label {pref},
+   {x} rdfs:subClassOf {sgr}
+from {x} rdf:type {gemet:Group},
+   [{x} rdfs:label {pref}],
+   [{x} gemet:subGroupOf {sgr}]
+
+using namespace
+  skos = <http://www.w3.org/2004/02/skos/core#>,
+  owl = <http://www.w3.org/2002/07/owl#>,
+  dc = <http://purl.org/dc/elements/1.1/>,
+  gemet = <http://www.eionet.eu.int/gemet/2004/06/gemet-schema.rdf#>

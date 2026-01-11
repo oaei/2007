@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment" 
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<Alignment>
+<xml>yes</xml>
+<level>0</level>
+<type>??</type>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0002516"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C13270"/>
+		<measure rdf:datatype="xsd:float">0.37228048</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0002512"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C13321"/>
+		<measure rdf:datatype="xsd:float">0.40416563</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0000810"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C49334"/>
+		<measure rdf:datatype="xsd:float">0.35184354</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0000709"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C13053"/>
+		<measure rdf:datatype="xsd:float">0.4423936</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0002452"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33521"/>
+		<measure rdf:datatype="xsd:float">0.44029713</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001161"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C12719"/>
+		<measure rdf:datatype="xsd:float">0.5010417</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001104"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33215"/>
+		<measure rdf:datatype="xsd:float">0.35048488</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+</Alignment>
+</rdf:RDF>

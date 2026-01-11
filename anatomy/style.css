@@ -1,0 +1,55 @@
+body {
+  margin: 2em 1em 2em 70px;
+  font-family: sans-serif;
+  color: black;
+  background: white top left fixed no-repeat url(sideimage.png);
+}
+:link { color: black; background: transparent }
+:visited { color: black; background: transparent }
+:active { color: black; background: transparent }
+
+th, td {
+  font-family: sans-serif;
+}
+
+th {
+  background: #006666;
+  color: white;
+}
+
+th.uni  { background: #003366; }
+th.jura { background: #669933; }
+th.bwl  { background: #3333ff; }
+th.phil { background: #cc0000; }
+th.sowi { background: #cc9900; }
+th.vwl  { background: #003399; }
+th.minf { background: #006666; }
+
+td {
+  background: #f0f0f0;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 { text-align: left }
+h1, h2, h3 { color: #006666; background: transparent }
+h1 { font: 170% sans-serif }
+h2 { font: 140% sans-serif }
+h3 { font: 120% sans-serif }
+h4 { font: bold 100% sans-serif }
+h5 { font: italic 100% sans-serif }
+h6 { font: small-caps 100% sans-serif }
+
+.hide { display: none }
+
+a[href]:hover { color: black; background: yellow }
+
+ul { list-style: none; }
+
+ul.answer {list-style: circle; }
+
+p.question {
+	color: grey;
+	font-weight: bold;
+}
+
+.important { color: red; background: transparent }

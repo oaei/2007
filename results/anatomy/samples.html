@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+           "http://www.w3.org/TR/REC-html40/loose.dtd">
+<head>
+  <title>Anatomy - Alignment Evaluation 2007</title>
+  <link rel="stylesheet" type="text/css" href="../../anatomy/style.css" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+
+<h1>Track: Anatomy - OAEI 2007 - Reference Sample</h1>
+
+
+<p>
+To get a better understanding of the OAEI 2007 anatomy track and to support further improvements of
+matching systems a small sample of the reference mapping is provided for download on this page.
+To construct this reference mapping some further evaluations have been conducted which might also
+be interesting. These are reported here.
+</p>
+
+<h2>Constructing the Sample</h2>
+
+<p>
+To construct a useful sample, the following strategy has been applied.
+We first computed for all submission the subset of all correct non trivial correspondences.
+These are all correspondences that are both correct (with respect to the reference mapping)
+and non-trivial (with respect to the simple string equality method,
+shortly described <a href="index.html">here</a>).
+</p>
+
+<p>
+In the next step, we removed from all of these mappings the correspondences
+that have been detected by one of the other matching systems:
+For each matching system, we constructed the set of non trivial correct correspondences
+that have been detected only by this specific matching system and that no other system could detect.
+We refer to these sets as UNTC(<i>matcher</i>), the unique non-trivial correspondences
+detected by matching system <i>matcher</i>.<p>
+
+<p>These mappings are quite interesting. If e.g. for  <i>matcher1</i> we have 
+|UNTC(<i>matcher1</i>)| = 10 while we have |UNTC(<i>matcher2</i>)| = 0, 
+|UNTC(<i>matcher3</i>)| = 0 and so on, then this means that <i>matcher1</i> has
+used some source of information or some successful strategy that is very specific
+to this matcher.
+From a different point of view: The characteristics of  |UNTC(<i>matcher1</i>)| and the
+characteristics of <i>matcher1</i> seem to be a good starting point for finding non trivial strategies
+to increase recall.<p>
+
+
+<h2>The Sample</h2>
+
+<p>
+The following table provides a link to the UNTC mappings for all participating systems
+(only for Lily we had to choose a subset of only 10 correspondences, to keep the sample small).
+</p>
+
+<table>
+<tr>
+<th>Matching System</th><th>Size of UNTC</th><th>Link to UNTC-Mapping</th>
+</tr>
+<tr>
+<td>AOAS </td><td>6 </td><td> <a href="untc/untc_AOAS.rdf">untc_AOAS.rdf</a></td>
+</tr>
+<tr>
+<td>Sambo </td><td>10 </td><td> <a href="untc/untc_SAMBO.rdf">untc_SAMBO.rdf</a></td>
+</tr>
+<tr>
+<td>ASMOV </td><td>2 </td><td> <a href="untc/untc_ASMOV.rdf">untc_ASMOV.rdf</a></td>
+</tr>
+<tr>
+<td>Rimom </td><td>5 </td><td> <a href="untc/untc_rimom.rdf">untc_rimom.rdf</a></td>
+</tr>
+<tr>
+<td>Falcon-AO </td><td>0 </td><td> <a href="untc/untc_falcon.rdf">untc_falcon.rdf</a></td>
+</tr>
+<tr>
+<td>TaxoMap </td><td>6 </td><td> <a href="untc/untc_TaxoMap.rdf">untc_TaxoMap.rdf</a></td>
+</tr>
+<tr>
+<td>AgreementMaker </td><td>2 </td><td> <a href="untc/untc_sunna-cruz.rdf">untc_sunna-cruz.rdf</a></td>
+</tr>
+<tr>
+<td>Prior+ </td><td>7 </td><td> <a href="untc/untc_prior.rdf">untc_prior.rdf</a></td>
+</tr>
+<tr>
+<td>Lily </td><td>20 (10) </td><td> <a href="untc/untc_lily.rdf">untc_lily.rdf (a subset of size 10)</a></td>
+</tr>
+<tr>
+<td>X-SOM </td><td>0 </td><td> <a href="untc/untc_xsom.rdf">untc_xsom.rdf</a></td>
+</tr>
+<tr>
+<td>DSSim </td><td>6 </td><td> <a href="untc/untc_DSSim.rdf">untc_DSSim.rdf</a></td>
+</tr>
+<tr>
+<td>UNION of all UNTCs </td><td>54</td><td> <a href="untc/untc_UNION.rdf">untc_UNION.rdf</a></td>
+</tr>
+</table>
+
+<p>
+One might be confused about the relatively small numbers, but notice that it
+is quite hard for a matcher to find correspondences that non of the other 10 systems
+(some with low precision) detects. Therefore, in particular the results for Lily are interesting.
+Notice that Lily does not use any medical background knowledge.
+<p>
+	
+<p>The whole reference sample is referred to as untc_UNION.rdf in the table.
+</p>
+	
+<p>
+In the context of computing these UNTCs we also computed the union-mappings of all matching
+systems. For this mapping we measured 92.3% recall and 20.6% precision. The high value for this
+&quot;union-recall&quot; shows (for the best system we had 80.4% recall) that there is still
+some room for improvement, even though it will be hard to sort out the incorrect mappings.
+</p>
+
+<h2>Further evaluations</h2>
+
+<p>
+The small sample of the non trivial reference mapping (the UNION of all UNTCs)
+should be useful in the process of enhancing a matching system,
+performing some partial evaluation, doing some analysis, and so on.
+Nevertheless, some of the OAEI 2007 and potential OAEI 2008 anatomy participants might
+be interested in a full evaluation of their (eventually) improved or first time participating systems.
+Therefore, it is possible to send us an submission in the already
+<a href="../../anatomy/">described format</a>. Since it is still not possible to publish the whole
+reference mapping, as a response to such a submission you will be informed about precision,
+recall and f-measure of your submission.
+To avoid reconstructing the reference mapping from precision and recall values
+(we think this is possible, if submissions are sent to us in a systematic way)
+we restrict ourselves to do this for each system only two times
+(in the period from January to June 2008).
+</p>
+
+<p>
+If you have any questions, problems with the dataset, or some interesting observations with respect
+to your experience with the data set, write an email to christian [at] informatik.uni-mannheim.de.
+</p>
+
+
+<p>Last updated: 18.12.2007 by Christian Meilicke.</p>
+
+<p><a href="http://validator.w3.org/check/referer"><img
+style="border:0;width:88px;height:31px"
+src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1!" /></a> <a
+href="http://jigsaw.w3.org/css-validator/check/referer"><img
+style="border:0;width:88px;height:31px"
+src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+</p>
+
+<p>&nbsp;</p>
+</body>
+</html>
+
+
+
+
+
+

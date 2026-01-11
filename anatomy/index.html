@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Anatomy - Alignment Evaluation 2007</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+<a href="../.."><img width="20%" border="0" src="../../oaei.jpg" align="right" /></a>
+<h1>Track: Anatomy - Ontology Alignment Evaluation Initiative 2007</h1>
+
+<h2>Resources</h2>
+
+<p>The &quot;Anatomy&quot; track of the 2007 campaign consists of finding alignments (3 specific tasks)
+between the Adult Mouse Anatomy and the NCI Thesaurus (describing the human
+anatomy). These two ontologies are available in owl here:</p>
+
+<ul>
+	<li><a href="mouse_anatomy.owl">mouse_anatomy.owl</a></li>
+	<li><a href="nci_anatomy.owl">nci_anatomy.owl</a></li>
+</ul>
+
+<p>Use these ontologies as input for your matching system.</p>
+
+<h2>FAQ</h2>
+
+
+<p>Some questions and answers on certain problems with the matching task are listed in a <a href="faq.html">FAQ-page</a>. This page
+eventually contains some useful hints.</p>
+
+
+
+<h2>Evaluation</h2>
+
+<p>We would like to gratefully thank Martin Ringwald and Terry Hayamizu (Mouse Genome Informatics - http://www.informatics.jax.org/), who provided us
+with a reference mapping for these ontologies. The reference mapping contains <b>only equivalence correspondences between concepts</b> of the ontologies.
+No correspondences between properties (roles) are specified.
+If your system also creates correspondences between properties or correspondences that describe subsumption relations,
+these results will not influence the evaluation (but can nevertheless be part of your submitted results).
+</p>
+
+<p>The results of your matching system will be compared to this reference alignment. Therefore, all of the the results have to be delivered in the <a href="http://oaei.ontologymatching.org/2006/align.html">format specified here</a>. </p>
+<p class="important">Note, that your system has to provide meaningful confidence estimations for each generated correspondence somewhere in the range from 0.0 (extremly unconfident) to 1.0 (very confident). Beyond the standard f-measure and precision resp. recall it is also planned to measure the quality of these confidence values.</p>
+
+<p>In particular, the following matching results have to be provided:</p>
+
+<ul>
+	<li><b>Mouse-Human #1:</b> The final result of your matching system. This alignment should be an optimal solution to the matching problem with respect to both recall and precision as far as possible.<br>&nbsp;</li>
+	<li><b>Mouse-Human #2:</b> The final result of your matching system, which should be optimized for precision.<br>&nbsp;</li>
+	<li><b>Mouse-Human #3:</b> The final result of your matching system, which should be optimized for recall.<br>&nbsp;</li>
+</ul>
+
+<p>The results of task #1, #2, and #3 will be checked against the reference mapping to compute recall and precision.
+For all three task we will compute the f-measure which is the (weighted) harmonic mean of precision and recall.
+</p>
+
+<p><img src="f-alpha.png"></p>
+
+<p>
+In task #1 recall and precision are evenly weighted (alpha = 1).
+For task #2 and #3 precision and recall are weighted differently.
+Alpha will be set to 5 respectively 1/5. Task #2 and #3 will show if your system is configurable for different scenarios.
+</p>
+
+<h2>Time-schedule</h2>
+
+<p>The time schedule is available at <a href="http://oaei.ontologymatching.org/2007/">http://oaei.ontologymatching.org/2007/</a>
+in the section &quot;Schedule Overview&quot;.</p>
+
+Important: Notice that the ontologies of this track have been automatically transformed from their corresponding .obo-files.
+Early testing and communicating problems could be useful and is desired.
+
+<h2>Format of Submission</h2>
+
+<p>
+You should submit your results in the format and directory structure described at <a href="http://oaei.ontologymatching.org/2007/">http://oaei.ontologymatching.org/2007/</a>. In more detail with respect to the anatomy testcase, your submission should contain the following folders and files.
+</p>
+
+<pre>
++- anatomy
+|  +- 1
+|  |  +- participant.rdf
+|  +- 2
+|  |  +- participant.rdf
+|  |  +- participant-configuration.txt
+|  +- 3
+|  |  +- participant.rdf
+|  |  +- participant-configuration.txt
+</pre>
+
+<p>
+Besides the alignments described in the alignment format (the participant.rdf files), you should also specify which configuration has been chosen to generate the results for task #2 and #3. For task #1 the standard configuration of your system should be used. Thus, no additional information has to be provided. Since for task #2 and #3 precision resp. recall is more important, the chosen configurations should be different from the standard configuration of your system. Therefore, in the files participant-configuration.txt you have to describe shortly
+
+<ul>
+<li>which parameters you have chosen</li>
+<li>what the expected effects are</li>
+<li>and where and how this can be specified as input for your system.</li>
+</ul>
+</p>
+
+<p>If you cannot generate alignments for tasks #2 and #3 leave the corresponding folders empty.</p>
+
+
+<h2>Contact</h2>
+
+<p>If you have any problems working with the ontologies or any questions, feel
+free to write an email to christian [at] informatik.uni-mannheim.de.</p>
+
+<p>&nbsp;</p>
+
+<p>Last updated: 27.08.2007 by Christian Meilicke. </p>
+
+<p><a href="http://validator.w3.org/check/referer"><img
+style="border:0;width:88px;height:31px"
+src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1!" /></a> <a
+href="http://jigsaw.w3.org/css-validator/check/referer"><img
+style="border:0;width:88px;height:31px"
+src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+</p>
+
+<p></p>
+</body>
+</html>

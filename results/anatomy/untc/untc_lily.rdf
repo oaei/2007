@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<Alignment>
+<xml>yes</xml>
+<level>0</level>
+<type>??</type>
+
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001435"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33499"/>
+		<measure rdf:datatype="xsd:float">0.25702858</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001086"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33870"/>
+		<measure rdf:datatype="xsd:float">0.23893955</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001424"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C32242"/>
+		<measure rdf:datatype="xsd:float">0.22697571</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0002090"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33349"/>
+		<measure rdf:datatype="xsd:float">0.20539577</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0002131"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C12879"/>
+		<measure rdf:datatype="xsd:float">0.16832057</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001440"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33725"/>
+		<measure rdf:datatype="xsd:float">0.16603495</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001445"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33730"/>
+		<measure rdf:datatype="xsd:float">0.16603495</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001448"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33722"/>
+		<measure rdf:datatype="xsd:float">0.16603495</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001442"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C33727"/>
+		<measure rdf:datatype="xsd:float">0.16603495</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://mouse.owl#MA_0001702"/>
+		<entity2 rdf:resource="http://human.owl#NCI_C32681"/>
+		<measure rdf:datatype="xsd:float">0.13157725</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+
+</Alignment>
+</rdf:RDF>

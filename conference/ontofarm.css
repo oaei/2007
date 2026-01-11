@@ -1,0 +1,67 @@
+body{
+     font: 10pt sans-serif;
+
+}
+
+A:link{text-decoration:none;
+       color:#0B2BBF;
+
+       }
+
+A:actives{text-decoration:none;
+          color:#FF0000;
+                  }
+
+A:visited{color:#800040;
+          text-decoration:none;
+
+          }
+
+A:hover{color:red;
+        text-decoration: underline}
+A{
+	font: 10pt sans-serif;
+}
+
+table{
+      border: 1px solid black;
+}
+
+td.dump{
+      border: 1px solid black;
+      padding: 5px;
+}
+td.head{
+ background-color: black;
+ color: white;
+ font-weight: 700;
+ text-align: center;
+}
+
+h1{
+   font: 18pt sans-serif;
+}
+h2{
+   font: 14pt serif;
+}
+h3{
+   font: 12 pt sans-serf;
+}
+.center{
+        text-align: center;
+}
+
+.zprava{
+      font-size: 12pt;
+      color: blue;
+     
+}
+
+.em{
+     font-size: 12pt;
+     font-weight: 700;
+     
+}
+.indent{
+     padding-top: 5pt;
+}

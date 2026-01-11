@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <title>OAEI 2007 - Conference track</title>
+ <meta http-equiv="Content-type" content="text/html; charset=windows-1250">
+ <meta content="Ondřej Šváb" name="Author">
+ <link rel="stylesheet" href="../../library/stitch-style.css" type="text/css" title="ontofarm">  
+</head>
+<body>
+<a href="http://oaei.ontologymatching.org/2007/"><img src="../../../oaei.jpg" alt="Ontology Alignment Evaluation Initiative" align="right" border="0" width="20%"/></a>
+<h1>Evaluation of 'Conference track'</h1> 
+
+According to the nature of this track, we are mainly interested in some 
+"interesting" mappings ("nuggets"). Although traditional evaulation was not 
+our intention, we made some sort of evaluation as a side-effect of processing 
+results from our six participants. 
+All the statistics as well as precision and recall have been provisionally made by track organisers, who can
+often be subjective; the focus of the track is on interesting individual
+alignments and repeated patterns rather than on precision/recall figures.
+<br>
+So far, we have manually labelled 6898 mappings from participants. In order to make evaluation process more balanced, we transformed all results of
+participants into 91 alignments, except results of the SEMA tool. They (SEMA team) delivered
+13 alignments – they mapped all ontologies to the EKAW ontology. Additionally, we took mappings from participants with higher measure than 0,7.
+<br> 
+<br>
+<img src="eval2.jpg">
+<br>
+<br>
+The abovementioned table encompasses several numerical statistics related to the results of six participants, called according to  
+name of their systems (ASMOV, Falcon, Lily, OLA, OntoDNA and SEMA).
+Finally, there is also number of all unique mappings in the last row of the table. In the following, columns are explained:
+<ul>
+<li><b>measure</b> shows whether mapping is strictly true/false or is scaled between 0 and 1,</li>
+<li><b># mappings</b> shows number of all mappings which have been included in "assessment,"</li>
+<li><b># correct</b> shows number of correct mappings, in other words, it is number of true positive mappings,</li>
+<li><b># incorrect</b> shows number of incorrect mappings, ie. false positive mappings,</li>
+<li><b># trivial</b> shows number of mappings where both elements have the same name and they were equal.</li>
+<li><b># unclear</b> shows number of unclear mappings where evaluator has not been able to decide whether mapping is correct or not.</li>
+</ul>
+The following columns are dealing with measure of precision and recall:
+<ul>
+<li><b>precision (P)</b> is computed as ratio of the number of all correct mappings to the number of incorrect plus correct mappings,</li>
+<li><b>rrecall (rR)</b> is computed as ratio of the number of all correct mappings (sum of all correct mappings per one system) to the number of all correct mappings found by any of systems (per all systems). 
+This is our "relative" recall.</li>
+</ul>
+During manual evaluation we used the following 'categories', that you can see in 
+the table below. These 'categories' are mainly needed for choosing candidates for 'Consensus building workshop':
+<ul>
+<li><b># interesting</b> shows number of "interesting" correct mappings, these mappings are correspondences which is not so easy to find at first sight (due to eg. string-based approach is not enough),</li>
+<li><b># subsumptions</b> shows number of mappings which have been wrong classified as equivalence, but it should be in 
+correspondence with relation of subsumption, in arbitrary direction,</li>
+<li><b># siblings</b> shows number of mappings which have been wrong classified as equivalence, but mapped elements are rather siblings,</li>
+<li><b># inversion</b> shows number of mappings which have been wrong classified as equivalence, but mapped relations are rather inverse than equivalent,</li>
+<!-- 
+<li><b># relClass</b> shows number of mappings which is mapping between class and relation or vice versa,</li> -->
+<li><b># int FP</b> shows number of "interesting" incorrect mappings, ie. "interesting" false positive mappings.
+These mappings are incorrect correspondences which do not belong to any abovementioned groups (eg. subsumptions, siblings, etc.),</li>
+<li><b>ratioSubs</b> shows ratio of the number of subsumption errors and the number of incorrect mappings,</li>
+<li><b>ratioTriv</b> shows ratio of the number of so-called trivial mappings and the number of correct mappings.</li>
+</ul>
+<img src="eval4.jpg">
+
+
+<h2>Results of all participants</h2> 
+
+There were six participants in 'conference track' within OAEI-2007. You can download result of each participant (ie. alignments that participant submitted to 'conference track').
+<ul>
+<li><b><a href="results/asmov.zip">asmov</a></b>,</li>
+<li><b><a href="results/falcon.zip">falcon</a></b>,</li>
+<li><b><a href="results/lily.zip">lily</a></b>,</li>
+<li><b><a href="results/ola.zip">ola</a></b>,</li>
+<li><b><a href="results/ontodna.zip">ontodna</a></b>,</li>
+<li><b><a href="results/sema.zip">sema</a></b>.</li>
+</ul>
+<!--You can also download all <a href="results/evaluationConferenceTrack07.csv">manually labeled data</a>. If you want to use these data, please let me know about it (svabo at vse dot cz) and if you want to refer these data, please cite them as whole dataset. This dataset was firstly presented at ISWC-2005 as poster (see at <a href="http://nb.vse.cz/~svatek/ontofarm.html">OntoFarm project</a>. Data are comma-separated; there are 5 columns:  
+<ul>
+<li><b>name1</b> refers to label of concept1,</li>
+<li><b>name2</b> refers to label of concept2,</li>
+<li><b>result</b> refers to manually labeled category for particular mapping,</li>
+<li><b>onto1</b> refers to ontology (the order is given in <a href="../../conference/#data">table</a>) from which concept is,</li>
+<li><b>onto2</b> refers to ontology (the order is given in <a href="../../conference/#data">table</a>) from which concept is,</li>
+</ul>
+In the column 'result', there are number of diverse categories:
+<ul>
+<li><b>+</b> represents correct mapping,</li>
+<li><b>i</b> represents 'interesting' correct mapping,</li>
+<li><b>/</b> represents 'interesting' incorrect mapping,</li>
+<li><b>-</b> represents incorrect mapping,</li>
+<li><b>s</b> represents subsumption relation,</li>
+<li><b>d</b> represents that concepts are siblings,</li>
+<li><b>n</b> represents inversion roles,</li>
+<li><b>?</b> represents unclear mapping,</li>
+<li><b>r</b> represents mapping between property and class, or vice versa,</li>
+<li><b>t</b> represents mapping that is trivial - regarding textual labels.</li>
+</ul-->
+</body>
+</html>

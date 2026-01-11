@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Anatomy - Alignment Evaluation 2007</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+<h1>OAEI 2007: Anatomy-Track - FAQ</h1>
+
+<p>This webpage contains some questions of the participants related to certain problems
+with the anatomy testcase. Since the answers to these questions could be useful hints for other
+participants, they are listed here.</p>
+
+<p class="question">2007-07-25: I do not get the point of matching these ontologies. Do we need biological knowledge to this end? Should we establish (sub)graph matching?</p>
+
+<ul class="answer">
+<li>
+Biological knowlegde: I guess you asking if the matching task could only be solved with acceptable results if you have a kind of upper ontology or something like that (like wordnet for natural language). This could be useful, but acceptable (or even good) results can also be established without this.
+</li>
+<li>
+Names and Labels: If you take a look at some of the concepts you will find out, that the names (ids) of the concepts do not describe the concepts, they are like MA_000016 or like NCI_29394 and there is no relation between the numbers of these ids. That means that you have to go for the labels instead of using names. You will see that there are some similarities between the labels. Notice that the obo-conversion resulted in some oboInOwl:tags that contain additional information that can be interpreted similar to labels.
+</li>
+<li>
+Graphmatching: This is a question that you have to answer for yourselves, and if you have a good matching system, your system will give you a correct answer. Load both ontologies in some graphical editor (e.g. swoop) to get a feeling.
+</li>
+<li>
+Selfmade-Evaluation: If you run your system, take a look at the results, even if you have no biological knowledge you can give some rule of thumb estimations about the correctness for yourself (in some cases).
+</li>
+</ul>
+
+
+
+<p><a href="index.html">Back to main page</a></p>
+
+</body>
+
+
+</html>

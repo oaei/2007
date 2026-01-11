@@ -1,0 +1,71 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Ontology Alignment Challenge - Web Directories</TITLE>
+<META http-equiv=Content-Type content=text/html;charset=iso-8859-1>
+<META content="MSHTML 6.00.2900.2627" name=GENERATOR></HEAD>
+<BODY>
+
+<a href="../.."><img border="0" width="20%" src="oaei.jpg" align="right" /></a>
+ 
+<H1>Task 2: Real-World Challenge: Aligning Web Directories</H1>
+
+<H2>Focus of this Alignment Task</H2>
+<P>The focus of this task is to evaluate performance of existing alignment tools 
+  in real world taxonomy integration scenario. Our aim is to show whether ontology 
+  alignment tools can effectively be applied to integration of "shallow ontologies". 
+</P>
+<P>The evaluation dataset was extracted from <a href="http://www.google.com/dirhp">Google</a>, <a href="http://dir.yahoo.com/">Yahoo</a> and <a href="http://www.looksmart.com/r?country=uk">Looksmart</a> web directories. 
+The specific characteristics of the dataset are:</P>
+<UL>
+  <LI>More than 4500 of node matching tasks, where each node matching task is composed from the paths to root of the nodes in the web directories. 
+  <LI>Expert mappings for all the matching tasks. 
+  <LI>Simple relationships. Basically web directories contain only one type of 
+    relationship so called &quot;classification relation&quot;.
+  <LI>Vague terminology and modeling principles: The matching tasks incorporate the typical "real world" modeling and terminological errors. 
+</UL>
+<P>This implies that the task will be challenging from a technological point of 
+view, but there is guidance for tuning matching approach that needs to be taken 
+into account. The papers describing the datatset construction methodology are <a href="../../2006/directory/taxme1.pdf">TaxME</a> and <a href="../../2006/directory/taxme2.pdf">TaxME 2</a>.</P>
+
+<H2>The Data</H2>
+
+<P>The node matching tasks are represented by pairs of OWL ontologies,
+  where classification relation is modeled as OWL subClassOf
+  construct. Therefore all OWL ontologies are taxonomies (i.e., they
+  contain <b>only classes</b> (without Object and Data
+  properties) <b>connected with subclass relation</b>. 
+  The dataset can be downloaded 
+  from <a href="ptr.zip">here</a>. The matching tasks are numbered
+  from 1 to 4640.
+  Thus, for example, the first matching task is to find a mapping
+  between 1/source.owl and 1/target.owl and to output it to a file
+  called 1/yourname.rdf.</p>
+
+<p>
+The alternative representation of the same data is two large scale OWL taxonomies. They can be downloaded from <a href="full.zip">here</a>. Two taxomonies incorporating 10% of the node matching tasks can be downloaded from <a href="10.zip">here</a>.  
+</p>
+
+<H2>Task and Submission of Results</H2>
+
+<P>The task is to find an alignment between classes in the
+  ontologies. 
+In order to find the alignment any information in the
+  two models can be used. In addition, it is allowed to use background
+  knowledge, <B>that has not specifically been created for the
+  alignment tasks</B> (ie no hand-made mappings between parts of the
+  ontologies). Admissible background knowledge are "Oracles" such as
+  WordNet, Cyc, UMLS, etc. Further, results must not be tuned manually
+  by for instance removing obviously wrong mappings. Participants are encouraged to submit the results for all representations of the dataset (i.e., both for node matching tasks and large scale taxonomies). 
+</P>
+
+
+<P>Results of the alignment should be represented using the <A 
+href="http://alignapi.gforge.inria.fr/">common format for alignments</A>
+  and send
+  to <A href="mailto:yatskevi@dit.unitn.it">yatskevi@dit.unitn.it</A>
+  for evaluation by September 1st. Quantitative indicators of matching quality (Precision and Recall) will be returned to participants till September 15th.</P>
+
+
+
+<HR>
+<CENTER><SMALL></SMALL></CENTER></BODY></HTML>

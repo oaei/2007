@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <title>OAEI 2007 - Conference track</title>
+ <meta http-equiv="Content-type" content="text/html; charset=windows-1250">
+ <meta content="Ondřej Šváb" name="Author">
+ <link rel="StyleSheet" href="../library/stitch-style.css" type="text/css">  
+</head>
+<body>
+<a href="http://oaei.ontologymatching.org/2007/"><img src="../../oaei.jpg" alt="Ontology Alignment Evaluation Initiative" align="right" border="0" width="20%"/></a>
+<H1>OAEI 2007 - Conference track (Consensus workshop)</H1>
+<p>
+<h2><a name="task">Motivation and Task</a></h2>
+Conference track contains quite real-case ontologies suitable for ontology mappings task because of their heterogenous character of origin. There are no reference alignments, therefore there are employed methods of <i>a posteriori evaluation</i>.
+Organisers of this track offer a posteriori evaluation of results in part manually and in part by data-mining techniques. Data-mining techniques can 
+answer questions like (you can find more information about this type of evaluation in <a href="#ref">[1]</a>.  
+</p>
+<ul>
+<li>Which systems give higher/lower validity than others to the mappings that are
+deemed ‘in/correct’?</li>
+<li>Which systems produce certain types of interwined mappings (so called  mapping patterns) more often than others?</li>
+<li>Which systems are more successful on certain types of ontologies?</li>
+</ul>
+Manual evaluation will produce statistics such as precision and will also serve as input into data-mining based of evaluation. 
+During manual evaluation some interesting mappings will be chosen which can be subject of consensus building discussion. 
+To sum up, special character of this track lies in way of evaluation (manual and data-mining approach, no prior reference alignment) and potential materials for consensus building discussion, 
+which potentially enables to discuss:
+<ul>
+<li>alignment types unforeseen by organizers,</li>
+<li>alignment types too sophisticated to be evaluated using standard metrics,</li>
+<li>negative results as useful feedback.</li>
+</ul>
+
+<p>
+<a href="../../2006/conference/">Previous conference track</a> was held at OAEI-2006.
+</p>
+<h2><a name="data">Data sets</a></h2>
+<p><a href="data/conference.zip">The collection of ontologies</a> is dealing with <b>conference organisation</b>. They have been developed within <a href="http://nb.vse.cz/~svatek/ontofarm.html">OntoFarm project</a>. 14 ontologies are included. Each of them is shortly described in the 
+following table. Ontologies have been based upon three types of underlying resources:
+<ul>
+<li>actual conference (series) and its <b>web pages</b> (indicated in column <b>Type</b> with mark Web),</li>
+<li>actual <b>software tool</b> for conference organisation support (indicated in column <b>Type</b> with mark Tool),</li>
+<li><b>experience</b> of people with personal participation in conference organisation (indicated in column <b>Type</b> with mark Insider).</li>
+</ul>
+<b>Name</b> is derived from name of conference or conference organisation tool. For downloading this ontology, just click on its name.<br>
+<b>DL expressivity</b> was obtained from <a href="http://www.mindswap.org/2004/SWOOP/">SWOOP</a> tool which is <i>Hypermedia-based OWL Ontology Browser and Editor</i>.<br><br> 
+<table summary="Features of each ontology in dataset" border="1" cellspacing="0">
+<tr>
+<td class="head">Name</td><td class="head">Type</td><td class="head">Number of Classes</td><td class="head">Number of Datatype Properties</td>
+<td class="head">Number of Object Properties</td><td class="head">DL expressivity</td><td class="head">Related link</td>
+<td class="head">Notes</td>
+</tr>
+<tr>
+<td><a href="data/ekaw.owl">Ekaw</a></td><td>Insider</td><td>77</td><td>0</td><td>33</td><td>SHIN(D)</td><td><a href="http://ekaw.vse.cz">http://ekaw.vse.cz</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/Conference.owl">Sofsem</a></td><td>Insider</td><td>60</td><td>18</td><td>46</td><td>ALCHIF(D)</td><td><a href="http://www.sofsem.cz">http://www.sofsem.cz</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/sigkdd.owl">Sigkdd</a></td><td>Web</td><td>49</td><td>11</td><td>17</td><td>ELI(D)</td><td><a href="http://www.acm.org/sigs/sigkdd/kdd2006">http://www.acm.org/sigs/sigkdd/kdd2006</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/iasted.owl">Iasted</a></td><td>Web</td><td>140</td><td>3</td><td>38</td><td>ALCIF(D)</td><td><a href="http://iasted.com/conferences/2005/cancun/ms.htm">http://iasted.com/conferences/2005/cancun/ms.htm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/MICRO.owl">Micro</a></td><td>Web</td><td>32</td><td>9</td><td>17</td><td>ALCIOF(D)</td><td><a href="www.microarch.org">www.microarch.org</a></td>
+<td><font color="red">new</font></td>
+</tr>
+<tr>
+<td><a href="data/confious.owl">Confious</a></td><td>Tool</td><td>57</td><td>5</td><td>52</td><td>SHIN(D)</td><td><a href="http://www.confious.com">http://www.confious.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/PCS.owl">Pcs</a></td><td>Tool</td><td>23</td><td>14</td><td>24</td><td>ELUIF(D)</td><td><a href="http://precisionconference.com">http://precisionconference.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/OpenConf.owl">OpenConf</a></td><td>Tool</td><td>62</td><td>21</td><td>24</td><td>ALCIO(D)</td><td><a href="http://www.zakongroup.com/technology/openconf.shtml">http://www.zakongroup.com/technology/openconf.shtml</a></td>
+<td><font color="red">the 9th of June, 2007. Bad xml:base URI has been repaired.</font></td>
+</tr>
+<tr>
+<td><a href="data/confOf.owl">ConfTool</a></td><td>Tool</td><td>38</td><td>23</td><td>13</td><td>SIF(D)</td><td><a href="http://www.conftool.net">http://www.conftool.net</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/crs_dr.owl">Crs</a></td><td>Tool</td><td>14</td><td>2</td><td>15</td><td>DL-Lite</td><td><a href="http://www.conferencereview.com">http://www.conferencereview.com</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/cmt.owl">Cmt</a></td><td>Tool</td><td>36</td><td>10</td><td>49</td><td>ALCIF(D)</td><td><a href="http://msrcmt.research.microsoft.com/cmt">http://msrcmt.research.microsoft.com/cmt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/cocus.owl">Cocus</a></td><td>Tool</td><td>55</td><td>0</td><td>35</td><td>ALCIF(D)</td><td><a href="http://cocus.create-net.it/">http://cocus.create-net.it/</a></td>
+<td><font color="red">new</font></td>
+</tr>
+<tr>
+<td><a href="data/paperdyne.owl">Paperdyne</a></td><td>Tool</td><td>47</td><td>21</td><td>61</td><td>ALCHIOF(D)</td><td><a href="http://www.paperdyne.com/">http://www.paperdyne.com/</a></td>
+<td><font color="red">new</font></td>
+</tr>
+<tr>
+<td><a href="data/edas.owl">Edas</a></td><td>Tool</td><td>104</td><td>20</td><td>30</td><td>ALCIF(D)</td><td><a href="http://edas.info/">http://edas.info/</a></td>
+<td><font color="red">new</font></td>
+</tr>
+</table>
+<br>
+<i>We deeply acknowledge the effort of contributors to the collection:
+Július Štuller (and his team), Du‘an Rak, Petr Tomá‘ek, Luděk Mácha, Lenka
+ Navrátilová, Pavel Kříž, David Měrka, Roman Svoboda, Miroslav Joha, Tomá‘ Zelinka and Jozef Murín.</i>
+<br>
+<h2><a name="organisation">Organisation and Presentation</a></h2>
+Send any questions, comments, or suggestions to:
+<br>
+Ondřej Šváb ( svabo at vse dot cz ) or Vojtěch Svátek ( svatek at vse dot cz ).
+<br>
+<br>
+Final results have been presented at <a href="http://om2007.ontologymatching.org/">Ontology Matching workshop 2007</a>. 
+So-called 'Consensus building workshop' was on Monday. 
+During presentation, 'controversial' mappings have been argued. Argumentation process is now under processing.<br>
+Presentation from 'Consensus building workshop' is <a href="cbw07.ppt">here</a>. 
+<!-- <b>Finally, we would like to get from you several alignment files each contains
+the mappings between two ontologies.</b><br><br> --><br>
+<h2><a name="time-schedule">Time-schedule</a></h2>
+For more information about time-schedule see <a href="..">main page about OAEI-2007</a>.<br>
+<h2><a name="ref">References</a></h2>
+<p>[1] 
+Svab O., Svatek V., Stuckenschmidt H.: A Study in Empirical and ‘Casuistic’ Analysis of Ontology Mapping Results.
+In: 4th European Semantic Web Conference (ESWC-2007), Innsbruck 2007. Springer LNCS 4519.
+<a href="http://nb.vse.cz/%7Esvatek/abstr.htm#eswc07" target="_blank">Abstract</a>
+<a href="http://nb.vse.cz/%7Esvatek/eswc07su.pdf" target="_blank">Draft paper</a> (final version available via <a href="http://www.springerlink.com/content/l3327x8n451g12r0/?p=1b0e634a25944c04836ca09588855c3d&pi=24">SpringerLink</a>).
+</p>
+<br>
+</body>
+</html>

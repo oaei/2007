@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>OAEI 2007 Library Alignment Task</title>
+  <link rel="stylesheet" href="stitch-style.css" type="text/css">
+</head>
+<body>
+
+<p></p>
+<a href="http://oaei.ontologymatching.org/2007/"><img width="20%" border="0"
+src="http://oaei.ontologymatching.org/oaei.jpg" align="right" />
+ </a>
+
+<h1>OAEI 2007 National Library of the Netherlands (KB) Thesaurus Mapping
+Task</h1>
+
+<h2>Introduction</h2>
+Participants of this task are expected to align two Dutch thesauri used to
+index books from two collections held by the National Library of the
+Netherlands (<a href="http://www.kb.nl">KB</a>). The required alignments
+links are inspired by the SKOS and SKOS mapping vocabularies. The results
+will be evaluated by members of the STITCH project and domain experts in KB.
+
+<h2>Alignment task</h2>
+
+<h3>Collections and vocabularies</h3>
+
+<p>KB maintains two big collections: the <a
+href="http://netuit.kb.nl/">Deposit Collection</a>, containing all the Dutch
+printed publications (one million items), and the Scientific Collection,
+with about 1.4 million books mainly about the history, language and culture of
+the Netherlands.</p>
+
+<p>Each collection is described according to its own indexing system and
+conceptual vocabulary. On the one hand, the Scientific Collection is
+described using the <strong>GTT</strong>, a huge vocabulary containing 35,000
+general concepts ranging from Wolkenkrabbers (Sky-scrapers) to Verzorging
+(Care). On the other hand, the books contained in the Deposit Collection are
+mainly indexed against the <strong>Brinkman thesaurus</strong>, containing a
+large set of headings (more than 5,000) that are expected to serve as global
+subjects of books. Both thesauri have similar coverage (there are more than
+2,000 concepts having exactly the same label) but differ in granularity.</p>
+
+<p>For each concept, the thesauri provide the usual lexical and semantic
+information: preferred labels, synonyms and notes, broader and related
+concepts, etc. The language of both thesauri is Dutch, but a quitesubstantial
+part of Brinkman concepts (around 60%) come with English labels. For the
+purpose of the alignment, the two thesauri have been represented according to
+the <a href="http://www.w3.org/2004/02/skos/">SKOS</a> model, which provides
+with all these features.</p>
+
+<p><strong>The goal of the task is to find semantic links between the
+concepts contained by these GTT and Brinkman thesauri.</strong></p>
+
+<p></p>
+
+<h3><a name="mappingconfigs">Expected Alignments</a></h3>
+
+<p></p>
+
+<p>The expected alignments shall come in the format defined for the <a
+href="http://oaei.ontologymatching.org/2007/align.html">Ontology Alignment
+API</a>.</p>
+
+<p>As the context of the task is clearly thesaurus-based information systems,
+the alignment links to be produced shall be compatible with standard
+thesaurus semantic links.</p>
+
+<p>Especially expected are alignment links found in the <a
+href="http://www.w3.org/2004/02/skos/mapping/spec/">SKOS mapping</a>
+vocabulary namespace (<code>http://www.w3.org/2004/02/skos/mapping#</code>,
+referred to as <code>skosm:</code> below):</p>
+<ul>
+  <li><code>skosm:exactMatch</code>, which denotes equivalence between two
+    concepts</li>
+  <li><code>skosm:broadMatch</code> and <code>skosm:narrowMatch</code>
+    denoting hierarchical generalization and specialization</li>
+</ul>
+
+<p>Additionally, an adhoc link denoting general relatedness is allowed and
+will be evaluated:</p>
+<ul>
+  <li><code>http://stitch.cs.vu.nl/mapping#relatedMatch</code></li>
+</ul>
+
+<p>The other semantic relations found in SKOS mapping vocabulary are allowed
+but <em>will not be evaluated</em>:</p>
+<ul>
+  <li><code>skosm:minorMatch</code></li>
+  <li><code>skosm:majorMatch</code></li>
+</ul>
+
+<p>Finally, SKOS mapping provide with three classes that allow to map defined
+concepts. These are allowed, but will not all be evaluated:</p>
+<ul>
+  <li><code>skosm:AND</code> and <code>skosm:OR</code>, denoting intersection
+    and union of concepts, <em>will be evaluated</em>;</li>
+  <li><code>skosm:NOT</code> <em>will not be evaluated</em>.</li>
+</ul>
+
+<p></p>
+
+<p>Note on alignment cardinality and confidence measure:</p>
+<ul>
+  <li>results can come with confidence measures, even though these will not
+    be formally evaluated;</li>
+  <li>it is allowed to have a same concept involved in different mapping
+    links (1-n and m-n mapping situations)</li>
+</ul>
+
+<p>The alignments shall be sent to the organizers of the task, Antoine Isaac and Henk
+Matthezing.</p>
+
+<h2><a name="collections" id="collections">Evaluation</a></h2>
+
+<p>Evaluation of the alignments will be done by members of the STITCH team
+with the help of domain experts. Due to the size of the vocabulary, only
+sample evaluation will be caried out.</p>
+
+<p>The modality of this sample evaluation will be determined, depending for
+example on the number of participants.</p>
+
+<p>A special attention will be given to application relevance. Especially,
+criteria for evaluation will be chosen according to specific application
+scenarios like query reformulation, book annotation or unified thesaurus
+design.</p>
+
+<h2>Data</h2>
+The data for the two vocabularies can be asked for by sending mail to the
+organizers of the task, <a
+href="mailto:Henk dot Matthezing at kb dot nl">Henk Matthezing</a> and <a
+href="mailto:aisaac at few dot vu dot nl">Antoine Isaac</a>. Participating
+requires accepting the terms of this <a
+href="http://creativecommons.org/licenses/by-nc-sa/2.5/nl/deed.en">creative
+commons licence</a> and committing not to use the data for a purpose other
+than the OAEI campaign. [This situation is caused by the data coming from two
+different environments]
+
+<p>Please notice that this e-mail process is not only expected to ensure
+compliance with IP situation. It will also help us to keep contact with
+participants, for instance if a new version of the data is produced, after a
+complaint by a participant.</p>
+
+<h2>Time schedule</h2>
+<ol>
+  <li>Participants submitted a preliminary version of their alignment on August 15th.</li>
+  <li>Final mappings were submitted on September 7th.</li>
+  <li>Evaluation (thesaurus merging scenario) has been done for October 5th</li>
+  <li>Evaluation (book re-indexing scenario) has been done for November 5th</li>
+</ol>
+
+<h2><a name="OWL">OWL Variant for this Task</a></h2>
+
+<p>In case the participants' tool cannot input or output the proposed SKOS
+(-inspired) data, OWL versions are provided, and OWL alignment relationships
+can be evaluated. Notice, however, that this amounts to making specific
+interpretations of the original data and produced alignments, and might
+reduce the quality of the final results.</p>
+
+<p>The following conversions were made regarding the data:</p>
+<ul>
+  <li>instances of <code>skos:Concept</code> are converted into instances of
+    <code>owl:Class</code>;</li>
+  <li><code>skos:prefLabel</code>, <code>skos:altLabel</code> and
+    <code>skos:hiddenLabel</code> statements are converted to
+    <code>rdfs:label</code> statements, which removes the subtle distinctions
+    that exist between these different properties (in GTT for instance, many
+    <code>altLabel</code>s are not synonyms at all)</li>
+  <li>various kind of <code>skos:note</code>s are converted to
+    <code>rdfs:comment</code>s;</li>
+  <li><code>skos:broader</code> statements are converted into
+    <code>rdfs:subClassOf</code> statements;</li>
+  <li><code>skos:related</code> statements are converted into
+    <code>rdfs:seeAlso</code> statements.</li>
+</ul>
+
+<p>The following interpretations will be made of OWL data sent back by
+participants:</p>
+<ul>
+  <li>instances of <code>owl:Class</code> will be interpreted as instances of
+    <code>skos:Concept</code>;</li>
+  <li><code>owl:equivalentClass</code> statements will be interpreted as
+    <code>skosm:exactMatch</code> statements;</li>
+  <li>if participants align the original concepts (as instances of
+    <code>skos:Concept</code> and not <code>owl:Class</code>) using
+    <code>owl:sameAs</code>, these statements will also be interpreted as
+    <code>skosm:exactMatch</code>s;</li>
+  <li><code>rdfs:subClassOf</code> statements will be interpreted as
+    <code>skosm:broaderMatch</code> statements;</li>
+  <li><code>rdfs:seeAlso</code> statements will be interpreted as
+    <code>stitchm:relatedMatch</code> statements;</li>
+  <li>if participants' tools output alignments involving defined classes
+    using owl:intersectionOf and owl:unionOf respectively, the concerned
+    statements will be interpreted as statements involving
+    <code>skosm:AND</code> and <code>skosm:OR</code>. Disjunction-like
+    statements (<code>owl:disjoint</code>, <code>owl:differentFrom</code>,
+    <code>owl:disjointWith</code>, <code>owl:ComplementOf</code> which could
+    be interpreted as statements involving <code>skosm:NOT</code>) will be
+    ignored, as these are not evaluated.</li>
+</ul>
+
+<h2>Organizors and contributors</h2>
+
+Antoine Isaac, Henk Matthezing, Lourens van der Meij, Shenghui Wang.
+
+<p></p>
+<hr color="#222222">
+<br>
+<br>
+</body>
+</html>
